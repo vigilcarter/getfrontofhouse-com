@@ -16,7 +16,7 @@
 <meta name="twitter:card" content="summary" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400;1,8..60,500&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="/styles.css" />
 </head>
 <body>
@@ -37,58 +37,78 @@
   </div>
 </section>
 
-<section class="block">
+<section class="reel" aria-label="Sample work in motion">
+  <div class="reel-frame">
+    <video class="reel-video" autoplay muted loop playsinline preload="metadata" poster="/images/hill-street-site.jpg">
+      <source src="/video/hero.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="container reel-caption">
+    <span class="caption-meta">
+      <span class="caption-restaurant">Hill Street Tacos, Maple Bay</span>
+      <span class="caption-offer">Site redesign</span>
+    </span>
+  </div>
+</section>
+
+<section class="block work-block">
   <div class="container">
     <div class="section-eyebrow">Work</div>
-    <h2 class="section-headline">Before and after, on real restaurants.</h2>
+    <h2 class="section-headline">Three before-and-afters, on real-feel restaurants.</h2>
 
     <div class="gallery-grid">
-      <div class="gallery-item">
+      <figure class="gallery-item">
         <div class="gallery-frame">
-          <img src="/images/vinetti-menu.png" alt="Vinetti's Trattoria menu redesign, before and after comparison" loading="lazy" />
+          <img src="/images/vinetti-menu.jpg" alt="Vinetti's Trattoria menu redesign" loading="lazy" />
         </div>
-        <p class="gallery-description">Menu rebuilt from scratch. Same dishes, same prices, finally looking like them. Print-ready and digital-ready.</p>
-        <div class="gallery-caption">
-          <span class="title">Vinetti's Trattoria, Linden Heights</span>
-          <span class="kind">Menu redesign</span>
-        </div>
-      </div>
+        <figcaption class="caption">
+          <span class="caption-meta">
+            <span class="caption-restaurant">Vinetti's Trattoria, Linden Heights</span>
+            <span class="caption-offer">Menu redesign</span>
+          </span>
+          <p class="caption-body"><em>Menu rebuilt from scratch.</em> Same dishes, same prices, finally looking like them. Print-ready and digital-ready.</p>
+        </figcaption>
+      </figure>
 
-      <div class="gallery-item gallery-item-iterations">
+      <figure class="gallery-item gallery-iterations">
         <div class="iteration">
           <div class="gallery-frame">
-            <img src="/images/josephs-social-original.png" alt="Joseph's Diner social post, original version" loading="lazy" />
+            <img src="/images/josephs-social-original.jpg" alt="Joseph's Diner, first-draft social post" loading="lazy" />
           </div>
-          <div class="iteration-meta">
-            <span class="iteration-tag">Original</span>
-            <p class="iteration-desc">First version, sent to the owner for review within four hours of the photo.</p>
-          </div>
+          <figcaption class="caption">
+            <span class="caption-meta">
+              <span class="caption-restaurant">Joseph's Diner, Westridge</span>
+              <span class="caption-offer">Social post, draft one</span>
+            </span>
+            <p class="caption-body"><em>First version.</em> Sent to the owner for review within four hours of the photo.</p>
+          </figcaption>
         </div>
         <div class="iteration">
           <div class="gallery-frame">
-            <img src="/images/josephs-social-revised.png" alt="Joseph's Diner social post, revised after client feedback" loading="lazy" />
+            <img src="/images/josephs-social-revised.jpg" alt="Joseph's Diner, revised social post after feedback" loading="lazy" />
           </div>
-          <div class="iteration-meta">
-            <span class="iteration-tag">Revised</span>
-            <p class="iteration-desc">Tightened up after one round of owner feedback. Sharper contrast, cleaner hierarchy.</p>
-          </div>
+          <figcaption class="caption">
+            <span class="caption-meta">
+              <span class="caption-restaurant">Joseph's Diner, Westridge</span>
+              <span class="caption-offer">Social post, revised</span>
+            </span>
+            <p class="caption-body"><em>Tightened up</em> after one round of owner feedback. Sharper contrast, cleaner hierarchy.</p>
+          </figcaption>
         </div>
-        <div class="gallery-caption">
-          <span class="title">Joseph's Diner, Westridge</span>
-          <span class="kind">10 social posts</span>
-        </div>
-      </div>
+      </figure>
 
-      <div class="gallery-item">
+      <figure class="gallery-item">
         <div class="gallery-frame">
-          <img src="/images/hill-street-site.png" alt="Hill Street Tacos website redesign, before and after comparison" loading="lazy" />
+          <img src="/images/hill-street-site.jpg" alt="Hill Street Tacos website redesign" loading="lazy" />
         </div>
-        <p class="gallery-description">Outdated template replaced with a fast one-page site. Hours, menu, ordering link, no clutter.</p>
-        <div class="gallery-caption">
-          <span class="title">Hill Street Tacos, Maple Bay</span>
-          <span class="kind">Site redesign</span>
-        </div>
-      </div>
+        <figcaption class="caption">
+          <span class="caption-meta">
+            <span class="caption-restaurant">Hill Street Tacos, Maple Bay</span>
+            <span class="caption-offer">Site redesign</span>
+          </span>
+          <p class="caption-body"><em>Outdated template replaced</em> with a fast one-page site. Hours, menu, ordering link, no clutter.</p>
+        </figcaption>
+      </figure>
     </div>
   </div>
 </section>

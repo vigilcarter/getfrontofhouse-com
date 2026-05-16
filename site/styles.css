@@ -97,6 +97,33 @@ h1.hero-headline .dot { color: var(--accent); }
 }
 .hero-sub strong { color: var(--text); font-weight: 500; }
 
+/* Reel (full-bleed hero video) */
+.reel {
+  padding: 0 0 32px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg);
+}
+.reel-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: var(--bg-soft);
+  overflow: hidden;
+  border-bottom: 1px solid var(--border);
+}
+.reel-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.reel-caption {
+  padding-top: 22px;
+  padding-bottom: 8px;
+}
+
 /* Section base */
 section.block {
   padding: 96px 0;
@@ -118,137 +145,75 @@ section.block:last-of-type { border-bottom: none; }
   font-weight: 600;
   line-height: 1.1;
   letter-spacing: -0.02em;
-  margin-bottom: 48px;
+  margin-bottom: 56px;
   max-width: 760px;
   color: var(--text);
 }
 
-/* Gallery */
+/* Gallery — Captioned treatment.
+   Pivoted 2026-05-16 from card-style BEFORE/AFTER composites to
+   full-bleed single AFTERs with photo-essay-style captions. */
 .gallery-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 72px;
+  gap: 112px;
 }
 .gallery-item {
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  overflow: hidden;
-  background: var(--card);
-  box-shadow: 0 1px 0 rgba(26, 22, 20, 0.03);
+  margin: 0;
 }
 .gallery-frame {
   background: var(--bg-soft);
-  position: relative;
-  border-bottom: 1px solid var(--border);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
 }
 .gallery-frame img {
   width: 100%;
   height: auto;
   display: block;
 }
-.gallery-description {
-  padding: 22px 26px;
-  font-size: 17px;
-  line-height: 1.55;
-  color: var(--text);
-  background: var(--card);
-  border-bottom: 1px solid var(--border);
+figcaption.caption {
+  padding-top: 20px;
 }
-.gallery-placeholder {
+.caption-meta {
   display: flex;
-  width: 100%;
-  height: 100%;
-}
-.gallery-placeholder > div {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  padding: 32px;
-  text-align: center;
-}
-.gallery-placeholder .before {
-  background: repeating-linear-gradient(45deg, #e8dfd0, #e8dfd0 12px, #ddd2c0 12px, #ddd2c0 24px);
-  color: var(--text-muted);
-}
-.gallery-placeholder .after {
-  background: var(--card);
-  color: var(--text-muted);
-  border-left: 1px solid var(--border);
-}
-.gallery-placeholder .pill {
+  flex-wrap: wrap;
+  gap: 14px 20px;
   font-family: 'Inter', sans-serif;
   font-size: 11px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  background: var(--text);
-  color: var(--bg);
-  padding: 6px 14px;
-  border-radius: 999px;
   font-weight: 500;
-}
-.gallery-placeholder .label {
-  font-family: 'Source Serif 4', serif;
-  font-size: 17px;
-  color: var(--text-muted);
-  font-style: italic;
-}
-.gallery-caption {
-  padding: 18px 22px;
-  display: flex;
-  justify-content: space-between;
+  margin-bottom: 14px;
   align-items: baseline;
-  gap: 16px;
-  font-size: 14px;
 }
-.gallery-caption .title {
-  font-weight: 500;
+.caption-restaurant {
   color: var(--text);
-}
-.gallery-caption .kind {
-  color: var(--text-faint);
-  font-size: 12px;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-}
-
-/* Iteration layout (two stacked images in one gallery item) */
-.gallery-item-iterations .iteration {
-  border-bottom: 1px solid var(--border);
-}
-.gallery-item-iterations .iteration:last-of-type {
-  border-bottom: 1px solid var(--border);
-}
-.iteration-meta {
-  padding: 20px 26px;
-  display: flex;
-  align-items: flex-start;
-  gap: 16px;
-  background: var(--card);
-}
-.iteration-tag {
-  display: inline-block;
-  font-size: 11px;
   font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--accent);
-  background: rgba(181, 86, 58, 0.1);
-  padding: 5px 12px;
-  border-radius: 999px;
-  white-space: nowrap;
-  flex-shrink: 0;
-  margin-top: 2px;
 }
-.iteration-desc {
-  font-size: 16px;
+.caption-offer {
+  color: var(--accent);
+}
+.caption-body {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 19px;
   line-height: 1.55;
   color: var(--text);
-  margin: 0;
-  flex: 1;
+  max-width: 640px;
+  font-weight: 400;
 }
+.caption-body em {
+  font-style: italic;
+  color: var(--text);
+}
+
+/* Iteration layout (Joseph's: two stacked images in one gallery item) */
+.gallery-iterations {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 80px;
+}
+.gallery-iterations .iteration { margin: 0; }
 
 /* Offer (four line items) */
 .offer-grid {
@@ -399,7 +364,10 @@ section.block:last-of-type { border-bottom: none; }
   .contact-block { padding: 48px 28px; }
   .contact-block h2 { font-size: 28px; }
   .contact-email { font-size: 22px; }
-  .gallery-placeholder .label { font-size: 14px; }
-  .gallery-frame { aspect-ratio: 4 / 3; }
+  .gallery-grid { gap: 72px; }
+  .gallery-iterations { gap: 56px; }
+  .caption-body { font-size: 17px; }
+  .caption-meta { font-size: 10px; letter-spacing: 0.14em; gap: 8px 14px; }
+  .reel-caption { padding-top: 16px; }
   .nav-cta { padding: 7px 14px; font-size: 13px; }
 }
