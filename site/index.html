@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Front of House. Sharp visual work for restaurants.</title>
 <meta name="description" content="Menus, websites, social posts for independent restaurants. Done this week. Metro Detroit." />
-<meta name="theme-color" content="#faf5ec" />
+<meta name="theme-color" content="#0F0C0A" />
 <meta name="author" content="Front of House" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link rel="canonical" href="https://getfrontofhouse.com/" />
@@ -13,125 +13,128 @@
 <meta property="og:description" content="Sharp visual work for restaurants. Menus, websites, social posts. Done this week." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://getfrontofhouse.com/" />
-<meta name="twitter:card" content="summary" />
+<meta property="og:image" content="https://getfrontofhouse.com/images/hero-oven.webp" />
+<meta name="twitter:card" content="summary_large_image" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400;1,8..60,500&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&display=swap" rel="stylesheet" />
+<link rel="preload" as="image" href="/images/hero-oven.webp" />
 <link rel="stylesheet" href="/styles.css" />
 </head>
 <body>
 
 <header class="site-nav">
-  <div class="container" style="display:flex; justify-content:space-between; align-items:center; padding:0 32px; max-width:1200px; margin:0 auto;">
+  <div class="bar">
     <a href="/" class="wordmark">Front of House<span class="dot">.</span></a>
     <a href="#contact" class="nav-cta">Send a sample</a>
   </div>
 </header>
 
+<!-- HERO -->
 <section class="hero">
-  <div class="container">
-    <div class="hero-content">
-      <h1 class="hero-headline">Sharp visual work<br>for restaurants<span class="dot">.</span></h1>
-      <p class="hero-sub"><strong>Menus, websites, social posts.</strong> Done this week. Metro Detroit, independents only.</p>
+  <img class="hero-img" src="/images/hero-oven.webp" alt="Cook sliding a pizza into a wood oven" width="1254" height="1254" fetchpriority="high" />
+  <div class="hero-scrim"></div>
+  <div class="hero-inner">
+    <h1 class="hero-headline">Sharp visual work<br />for restaurants<span class="dot">.</span></h1>
+    <p class="hero-sub">Menus, websites, social posts. Done this week. Metro Detroit, independents only.</p>
+  </div>
+</section>
+
+<!-- WORK -->
+<section class="block" id="work">
+  <div class="wrap">
+    <p class="eyebrow">Work</p>
+    <h2 class="section-headline">What we make<span class="dot">.</span></h2>
+  </div>
+
+  <!-- 1. Mom's Coney Island -->
+  <article class="piece reveal">
+    <div class="wrap">
+      <p class="piece-label">Mom&rsquo;s Coney Island <span class="sep">&middot;</span> <em>Google listing</em></p>
     </div>
-  </div>
-</section>
-
-<section class="reel" aria-label="Sample work in motion">
-  <div class="reel-frame">
-    <video class="reel-video" autoplay muted loop playsinline preload="auto" poster="/images/hero-poster.jpg">
-      <source src="/video/hero.mp4" type="video/mp4">
-    </video>
-  </div>
-  <div class="container reel-caption">
-    <span class="caption-meta">
-      <span class="caption-restaurant">Vinetti's Trattoria, Linden Heights</span>
-      <span class="caption-offer">Menu redesign</span>
-    </span>
-  </div>
-</section>
-
-<section class="block work-block">
-  <div class="container">
-    <div class="section-eyebrow">Work</div>
-    <h2 class="section-headline">Three pieces of recent work.</h2>
-
-    <div class="gallery-grid">
-      <figure class="gallery-item">
-        <div class="gallery-frame">
-          <img src="/images/vinetti-menu.jpg" alt="Vinetti's Trattoria menu redesign" loading="lazy" />
-        </div>
-        <figcaption class="caption">
-          <span class="caption-meta">
-            <span class="caption-restaurant">Vinetti's Trattoria, Linden Heights</span>
-            <span class="caption-offer">Menu redesign</span>
-          </span>
-          <p class="caption-body"><em>Menu rebuilt from scratch.</em> Same dishes, same prices, finally looking like them. Print-ready and digital-ready.</p>
-        </figcaption>
-      </figure>
-
-      <figure class="gallery-item gallery-iterations">
-        <div class="iteration">
-          <div class="gallery-frame">
-            <img src="/images/josephs-social-original.jpg" alt="Joseph's Diner, first-draft social post" loading="lazy" />
-          </div>
-          <figcaption class="caption">
-            <span class="caption-meta">
-              <span class="caption-restaurant">Joseph's Diner, Westridge</span>
-              <span class="caption-offer">Social post, draft one</span>
-            </span>
-            <p class="caption-body"><em>First version.</em> Sent to the owner for review within four hours of the photo.</p>
-          </figcaption>
-        </div>
-        <div class="iteration">
-          <div class="gallery-frame">
-            <img src="/images/josephs-social-revised.jpg" alt="Joseph's Diner, revised social post after feedback" loading="lazy" />
-          </div>
-          <figcaption class="caption">
-            <span class="caption-meta">
-              <span class="caption-restaurant">Joseph's Diner, Westridge</span>
-              <span class="caption-offer">Social post, revised</span>
-            </span>
-            <p class="caption-body"><em>Tightened up</em> after one round of owner feedback. Sharper contrast, cleaner hierarchy.</p>
-          </figcaption>
-        </div>
-      </figure>
-
-      <figure class="gallery-item">
-        <div class="gallery-frame">
-          <img src="/images/hill-street-site.jpg" alt="Hill Street Tacos website redesign" loading="lazy" />
-        </div>
-        <figcaption class="caption">
-          <span class="caption-meta">
-            <span class="caption-restaurant">Hill Street Tacos, Maple Bay</span>
-            <span class="caption-offer">Site redesign</span>
-          </span>
-          <p class="caption-body"><em>Outdated template replaced</em> with a fast one-page site. Hours, menu, ordering link, no clutter.</p>
-        </figcaption>
-      </figure>
+    <div class="wrap piece-media">
+      <img src="/images/moms.webp" alt="Google business listing for Mom's Coney Island with an update panel filled in" width="1448" height="1086" loading="lazy" decoding="async" />
     </div>
-  </div>
+    <div class="wrap">
+      <p class="piece-caption"><strong>That panel is free, and yours is empty.</strong> Google puts your listing in front of everyone who searches your name. Most restaurants leave the update slot blank.</p>
+    </div>
+  </article>
+
+  <!-- 2. Halim's Kitchen -->
+  <article class="piece reveal">
+    <div class="wrap">
+      <p class="piece-label">Halim&rsquo;s Kitchen <span class="sep">&middot;</span> <em>Website</em></p>
+    </div>
+    <div class="wrap piece-media">
+      <div class="screens">
+        <img src="/images/Halim1.webp" alt="Halim's Kitchen mobile homepage: Fresh shawarma, fast pickup" width="700" height="587" loading="lazy" decoding="async" />
+        <img src="/images/Halim2.webp" alt="Halim's Kitchen mobile menu with wraps, bowls and fries" width="700" height="1244" loading="lazy" decoding="async" />
+        <img src="/images/Halim3.webp" alt="Halim's Kitchen mobile ordering screen" width="700" height="1244" loading="lazy" decoding="async" />
+      </div>
+    </div>
+    <div class="wrap">
+      <p class="piece-caption"><strong>Google&rsquo;s already sending people to your website.</strong> This is what they should find. Menu, prices, ordering &mdash; built for a phone, because that&rsquo;s where they&rsquo;re looking.</p>
+    </div>
+  </article>
+
+  <!-- 3. Bellori's -->
+  <article class="piece reveal">
+    <div class="wrap">
+      <p class="piece-label">Bellori&rsquo;s <span class="sep">&middot;</span> <em>Social</em></p>
+    </div>
+    <div class="wrap piece-media">
+      <div class="ig">
+        <div class="ig-head">
+          <img class="ig-avatar" src="/images/bellori-avatar.webp" alt="" width="320" height="320" loading="lazy" decoding="async" />
+          <div class="ig-meta">
+            <p class="ig-handle">@bellorispizza</p>
+            <p class="ig-bio">Detroit-style. Squares only. Pickup + delivery.</p>
+            <ul class="ig-stats">
+              <li><b>340</b> posts</li>
+              <li><b>4,812</b> followers</li>
+              <li><b>180</b> following</li>
+            </ul>
+          </div>
+        </div>
+        <div class="ig-grid">
+          <img src="/images/Tile1.webp" alt="Detroit-style pepperoni pizza in the pan" width="700" height="700" loading="lazy" decoding="async" />
+          <img src="/images/Tile2.webp" alt="Graphic post reading CORNERS" width="700" height="700" loading="lazy" decoding="async" />
+          <img src="/images/Tile3.webp" alt="Close crop of a caramelised crust edge" width="700" height="700" loading="lazy" decoding="async" />
+          <img src="/images/Tile4.webp" alt="Full pan cut into squares, overhead" width="700" height="700" loading="lazy" decoding="async" />
+          <img src="/images/Tile5.webp" alt="Hands laying pepperoni onto raw dough" width="700" height="700" loading="lazy" decoding="async" />
+          <img src="/images/Tile6.webp" alt="Finished pizza in an open takeout box" width="700" height="700" loading="lazy" decoding="async" />
+          <img src="/images/tile7.webp" alt="Offer post reading SQUARE DEAL, large pepperoni plus two sides, twenty four dollars" width="700" height="700" loading="lazy" decoding="async" />
+          <img src="/images/Tile8.webp" alt="Cook sliding a pizza into the oven" width="700" height="700" loading="lazy" decoding="async" />
+          <img src="/images/Tile9.webp" alt="Bellori's storefront lit at dusk" width="700" height="700" loading="lazy" decoding="async" />
+        </div>
+      </div>
+    </div>
+    <div class="wrap">
+      <p class="piece-caption"><strong>Somebody has to post.</strong> Photos, offers, the whole feed &mdash; shot and scheduled so your account looks like the restaurant does.</p>
+    </div>
+  </article>
 </section>
 
-<section class="block">
-  <div class="container">
-    <div class="section-eyebrow">What we do</div>
-    <h2 class="section-headline">Four things. Plain.</h2>
+<!-- WHAT WE MAKE / SERVICES -->
+<section class="block band">
+  <div class="wrap">
+    <p class="eyebrow">What we do</p>
+    <h2 class="section-headline">Four things. Plain<span class="dot">.</span></h2>
 
-    <div class="offer-grid">
-      <div class="offer-item">
+    <div class="offers">
+      <div class="offer">
         <h3>Menu redesign</h3>
         <p>Clean, modern, readable. Print-ready and digital-ready. Same dishes, finally looking like them.</p>
       </div>
-      <div class="offer-item">
+      <div class="offer">
         <h3>Site redesign</h3>
         <p>One-page or simple multi-page restaurant sites. Trust first, visuals second, conversion third.</p>
       </div>
-      <div class="offer-item">
+      <div class="offer">
         <h3>10 social posts</h3>
         <p>Custom promotional graphics and captions, built around your actual food and offers. Posted or handed off.</p>
       </div>
-      <div class="offer-item">
+      <div class="offer">
         <h3>Custom project</h3>
         <p>Hiring graphics, catering pages, event flyers, signage concepts, QR assets, email promos. If it touches your visuals, we can make it.</p>
       </div>
@@ -139,52 +142,69 @@
   </div>
 </section>
 
+<!-- WHO THIS IS FOR -->
 <section class="block">
-  <div class="container">
-    <div class="section-eyebrow">Fit</div>
-    <h2 class="section-headline">Who this is for.</h2>
+  <div class="wrap">
+    <p class="eyebrow">Fit</p>
+    <h2 class="section-headline">Who this is for<span class="dot">.</span></h2>
 
-    <div class="fit-grid">
+    <div class="fit">
       <div class="fit-col">
-        <h3 class="yes">You</h3>
+        <h3 class="fit-yes">You</h3>
         <ul>
-          <li>Your menu hasn't been touched in five years.</li>
+          <li>Your menu hasn&rsquo;t been touched in five years.</li>
           <li>Your Instagram is dormant or off-brand.</li>
-          <li>Your website is a 2014 template, or there isn't one.</li>
+          <li>Your website is a 2014 template, or there isn&rsquo;t one.</li>
           <li>You own the place. The decision is yours, today.</li>
-          <li>You'd rather see the fix than read a proposal.</li>
+          <li>You&rsquo;d rather see the fix than read a proposal.</li>
         </ul>
       </div>
       <div class="fit-col">
-        <h3 class="no">Not you</h3>
+        <h3 class="fit-no">Not you</h3>
         <ul>
-          <li>National chain or franchise. We don't fit.</li>
-          <li>In-house design team already shipping. You don't need us.</li>
+          <li>National chain or franchise. We don&rsquo;t fit.</li>
+          <li>In-house design team already shipping. You don&rsquo;t need us.</li>
           <li>Shopping for the cheapest social-poster on Fiverr. Not the right call.</li>
-          <li>Looking for strategy decks and quarterly reports. We don't do those.</li>
+          <li>Looking for strategy decks and quarterly reports. We don&rsquo;t do those.</li>
         </ul>
       </div>
     </div>
   </div>
 </section>
 
-<section class="block" id="contact">
-  <div class="container">
-    <div class="contact-block">
-      <div class="section-eyebrow">Contact</div>
-      <h2>Send a photo of the menu or post that bugs you most. We'll send back what it could look like, by tomorrow.</h2>
-      <a href="mailto:info@getfrontofhouse.com" class="contact-email">info@getfrontofhouse.com</a>
-      <p class="contact-note">No call required. Reply to the email when you see something you'd actually use.</p>
-    </div>
+<!-- CONTACT -->
+<section class="block contact" id="contact">
+  <div class="wrap">
+    <p class="eyebrow">Contact</p>
+    <h2 class="contact-headline">Send a photo of the menu or post that bugs you most. We&rsquo;ll send back what it could look like, by tomorrow.</h2>
+    <a href="mailto:info@getfrontofhouse.com" class="contact-email">info@getfrontofhouse.com</a>
+    <p class="contact-note">No call required. Reply to the email when you see something you&rsquo;d actually use.</p>
   </div>
 </section>
 
 <footer class="site-footer">
-  <div class="container" style="display:flex; justify-content:space-between; align-items:center; padding:0 32px; max-width:1200px; margin:0 auto;">
+  <div class="bar">
     <a href="/" class="wordmark">Front of House<span class="dot">.</span></a>
-    <span>Metro Detroit. &copy; 2026.</span>
+    <span class="footer-meta">Metro Detroit. &copy; 2026.</span>
   </div>
 </footer>
 
+<script>
+// Quiet fade as work enters the viewport. Nothing else moves.
+(function () {
+  var items = document.querySelectorAll('.reveal');
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce || !('IntersectionObserver' in window)) {
+    for (var i = 0; i < items.length; i++) items[i].classList.add('is-in');
+    return;
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
+    });
+  }, { rootMargin: '0px 0px -12% 0px', threshold: 0.08 });
+  items.forEach(function (el) { io.observe(el); });
+})();
+</script>
 </body>
 </html>
