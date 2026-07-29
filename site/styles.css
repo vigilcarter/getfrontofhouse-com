@@ -127,7 +127,7 @@ img { display: block; max-width: 100%; height: auto; }
 .screens img { width: 100%; }
 
 /* instagram-style header, built in markup */
-.ig { background: var(--raised); padding: 22px; }
+.ig { /* no card: the brief says no cards, borders or shadows on gallery items */ }
 .ig-head { display: flex; align-items: center; gap: 18px; margin-bottom: 20px; }
 .ig-avatar { width: 74px; height: 74px; border-radius: 50%; object-fit: cover; flex: 0 0 auto; }
 .ig-handle {
@@ -148,12 +148,12 @@ img { display: block; max-width: 100%; height: auto; }
 
 /* ---------- offers ---------- */
 .offers { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; margin-top: 44px; background: var(--line); }
-.offer { background: var(--raised); padding: 34px 30px; }
+.offer { background: var(--raised); padding: 38px 34px; }
 .offer h3 {
   color: var(--bone); font-size: 21px; margin-bottom: 10px;
   font-variation-settings: 'wdth' 92, 'wght' 700; letter-spacing: -0.01em;
 }
-.offer p { color: var(--bone-dim); font-size: 17px; line-height: 1.55; }
+.offer p { color: var(--bone-dim); font-size: 19px; line-height: 1.55; }
 
 /* ---------- fit ---------- */
 .fit { display: grid; grid-template-columns: repeat(2, 1fr); gap: 56px; margin-top: 44px; }
@@ -166,15 +166,20 @@ img { display: block; max-width: 100%; height: auto; }
 .fit-no  { color: var(--bone-faint); }
 .fit-col ul { list-style: none; }
 .fit-col li {
-  color: var(--bone-dim); font-size: 18px; line-height: 1.5;
-  padding: 12px 0; border-bottom: 1px solid var(--line);
+  color: var(--bone-dim); font-size: 19px; line-height: 1.5;
+  padding: 14px 0; border-bottom: 1px solid var(--line);
 }
 
 /* ---------- contact ---------- */
 .contact { padding-bottom: 120px; }
+.contact-panel {
+  background: var(--raised);
+  border: 1px solid rgba(224, 163, 46, 0.55);
+  padding: 64px 56px;
+}
 .contact-headline {
   font-size: clamp(30px, 5vw, 52px); color: var(--bone);
-  max-width: 20ch; margin-bottom: 34px;
+  max-width: 28ch; margin-bottom: 34px;
 }
 .contact-email {
   display: inline-block; color: var(--amber); text-decoration: none;
@@ -184,7 +189,7 @@ img { display: block; max-width: 100%; height: auto; }
   transition: border-color 0.16s ease;
 }
 .contact-email:hover { border-bottom-color: var(--amber); }
-.contact-note { margin-top: 22px; color: var(--bone-faint); font-size: 17px; max-width: 46ch; }
+.contact-note { margin-top: 22px; color: var(--bone-faint); font-size: 18px; max-width: 52ch; }
 
 /* ---------- footer ---------- */
 .site-footer { border-top: 1px solid var(--line); padding: 30px 0 44px; }
@@ -224,4 +229,5 @@ img { display: block; max-width: 100%; height: auto; }
   .ig-grid { gap: 2px; }
   .piece-caption { font-size: 18px; }
   .contact-headline { max-width: none; }
+  .contact-panel { padding: 36px 22px; }
 }
