@@ -42,14 +42,16 @@ img{display:block;max-width:100%;height:auto}
 /* ---------- top bar ---------- */
 .bar{background:var(--red);border-bottom:3px solid var(--gold)}
 .bar-in{max-width:var(--wrap);margin:0 auto;padding:14px 22px;display:flex;align-items:center;justify-content:space-between;gap:18px}
-.bar-logo{height:74px;width:auto}
+.bar-logo{height:74px;width:auto;padding:8px 14px;border-radius:6px;
+  background:rgba(22,7,5,.60);box-shadow:inset 0 0 0 1px rgba(201,169,97,.38)}
 .bar-nav{color:var(--cream);font-size:15px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;user-select:none}
 .bar-nav .sep{color:var(--gold);margin:0 10px}
 
 /* ---------- hero ---------- */
 .hero{display:grid;grid-template-columns:1.05fr .95fr;background:var(--red);color:var(--cream)}
 .hero-copy{padding:64px 22px 64px max(22px,calc((100vw - var(--wrap))/2 + 22px));display:flex;flex-direction:column;align-items:flex-start;justify-content:center}
-.hero-logo{height:118px;width:auto;margin-bottom:26px}
+.hero-logo{height:118px;width:auto;margin-bottom:26px;padding:14px 20px;border-radius:8px;
+  background:rgba(22,7,5,.60);box-shadow:inset 0 0 0 1px rgba(201,169,97,.38)}
 .hero h1{
   font-family:'Cormorant Garamond',Georgia,serif; font-weight:600;
   font-size:clamp(34px,4.4vw,54px); line-height:1.08; letter-spacing:-.01em; color:var(--cream);
@@ -155,10 +157,12 @@ img{display:block;max-width:100%;height:auto}
   box-shadow:0 6px 18px rgba(0,0,0,.45);
 }
 .map-pin b{display:block;font-family:'Cormorant Garamond',Georgia,serif;font-size:19px;letter-spacing:.01em;margin-bottom:2px}
-.credit{
-  background:var(--red-deep);color:rgba(251,246,226,.62);
-  font-size:12px;letter-spacing:.04em;text-align:center;padding:14px 22px;
+.credit{background:var(--red-deep);text-align:center;padding:16px 22px}
+.credit-invite{
+  color:rgba(251,246,226,.90);font-size:14px;letter-spacing:.02em;
+  max-width:52ch;margin:0 auto 5px;
 }
+.credit-line{color:rgba(251,246,226,.52);font-size:12px;letter-spacing:.04em}
 
 /* ---------- mobile-first fallbacks ---------- */
 @media (max-width:880px){
