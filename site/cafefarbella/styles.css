@@ -60,24 +60,45 @@ img{display:block;max-width:100%;height:auto}
 .hero-img{position:relative;min-height:420px}
 .hero-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 
-/* ---------- specials board ---------- */
-.specials{background:var(--paper);padding:56px 0}
+/* ---------- specials board ----------
+   Real slate plate behind live CSS text, deliberately NOT a baked-in image.
+   This section is the proof of the "we keep your specials current" service,
+   so the specials have to be editable text, not pixels. */
+.specials{background:var(--paper);padding:60px 0}
 .board{
-  background:var(--ink); color:var(--cream); border:1px solid var(--gold);
-  box-shadow:inset 0 0 0 6px var(--ink), inset 0 0 0 7px rgba(201,169,97,.35);
-  padding:34px 30px 26px; border-radius:3px;
+  position:relative; border-radius:4px; overflow:hidden;
+  background:#1E2422 url('/cafefarbella/img/slate.webp') center/cover no-repeat;
+  box-shadow:0 18px 40px rgba(36,31,28,.28), inset 0 0 90px rgba(0,0,0,.55);
+  border:10px solid #4A3B2C;   /* wood frame */
 }
-.board-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;
-  border-bottom:1px solid rgba(201,169,97,.4);padding-bottom:14px;margin-bottom:8px}
-.board-title{font-family:'Cormorant Garamond',Georgia,serif;font-size:32px;font-weight:700;letter-spacing:.01em}
-.board-date{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
-.board-list{list-style:none}
-.board-list li{display:flex;align-items:baseline;gap:12px;padding:13px 0;border-bottom:1px dashed rgba(201,169,97,.22)}
-.board-list li:last-child{border-bottom:0}
-.board-list .it{font-family:'Cormorant Garamond',Georgia,serif;font-size:23px;font-weight:600;white-space:nowrap}
-.board-list .ln{flex:1;border-bottom:1px dotted rgba(201,169,97,.45);transform:translateY(-4px)}
-.board-list .tag{font-size:14px;color:var(--cream-dim);white-space:nowrap}
-.board-foot{margin-top:16px;font-size:13px;color:var(--gold);letter-spacing:.10em;text-transform:uppercase}
+.board::after{ /* chalk-dust bloom so the text sits IN the slate, not on it */
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(120% 90% at 50% 40%,rgba(255,255,255,.055),transparent 62%);
+}
+.board-in{position:relative;z-index:1;padding:46px 44px 40px;text-align:center;
+  font-family:Caveat,'Segoe Script',cursive;color:#F2F0E6;
+  text-shadow:0 1px 2px rgba(0,0,0,.55), 0 0 12px rgba(242,240,230,.16);}
+.board-title{font-size:clamp(38px,5.2vw,58px);font-weight:700;line-height:1;letter-spacing:.01em}
+.board-date{
+  font-family:Inter,sans-serif;font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;
+  color:rgba(242,240,230,.62);margin-top:8px;text-shadow:0 1px 2px rgba(0,0,0,.5);
+}
+.board-date::after{ /* chalk rule, under the heading where it belongs */
+  content:"";display:block;width:120px;height:2px;margin:18px auto 24px;
+  background:rgba(242,240,230,.45);border-radius:2px;
+}
+.board-list{list-style:none;display:grid;gap:14px;max-width:620px;margin:0 auto}
+.board-list li{display:flex;flex-direction:column;gap:2px}
+.board-list .it{font-size:clamp(28px,3.4vw,38px);font-weight:600;line-height:1.05}
+.board-list .tag{
+  font-family:Inter,sans-serif;font-size:13px;letter-spacing:.10em;text-transform:lowercase;
+  color:rgba(242,240,230,.58);text-shadow:0 1px 2px rgba(0,0,0,.5);
+}
+.board-foot{
+  margin-top:28px;font-family:Inter,sans-serif;font-size:12px;font-weight:600;
+  letter-spacing:.20em;text-transform:uppercase;color:rgba(242,240,230,.55);
+  text-shadow:0 1px 2px rgba(0,0,0,.5);
+}
 
 /* ---------- menu ---------- */
 .menu{padding:64px 0 72px}
@@ -156,10 +177,10 @@ img{display:block;max-width:100%;height:auto}
   .hero-logo{height:88px}
   .menu-grid{grid-template-columns:1fr;gap:26px}
   .menu-shots{grid-template-columns:1fr}
-  .board{padding:24px 18px 20px}
-  .board-title{font-size:26px}
-  .board-list li{flex-wrap:wrap;gap:4px}
-  .board-list .ln{display:none}
-  .board-list .it{font-size:21px}
-  .board-list .tag{width:100%}
+  .board-in{padding:30px 20px 26px}
+
+
+
+
+
 }
