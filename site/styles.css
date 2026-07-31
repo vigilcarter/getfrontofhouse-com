@@ -77,21 +77,36 @@ img { display: block; max-width: 100%; height: auto; }
 .nav-cta:hover { background: #F0B341; }
 
 /* ---------- hero ---------- */
-.hero { position: relative; min-height: 78vh; display: flex; align-items: flex-end; overflow: hidden; }
-.hero-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 42%; }
-.hero-scrim {
-  position: absolute; inset: 0;
-  background:
-    linear-gradient(to top, rgba(15,12,10,0.96) 0%, rgba(15,12,10,0.72) 34%, rgba(15,12,10,0.30) 68%, rgba(15,12,10,0.42) 100%),
-    radial-gradient(120% 90% at 20% 90%, rgba(15,12,10,0.55), transparent 60%);
+/* Type-forward on the flat ground. No image, no scrim, and deliberately no
+   min-height: a 100vh hero pushes the work grid below the fold, which is the
+   opposite of what this page needs. Vertical padding is vh-based per spec but
+   clamped, so it cannot collapse on a landscape phone or balloon on a monitor. */
+.hero { background: var(--ground); padding: clamp(60px, 14vh, 160px) 0 clamp(52px, 12vh, 140px); }
+.hero-inner { max-width: var(--wrap); margin: 0 auto; padding: 0 24px; }
+.hero-headline {
+  font-size: clamp(42px, 8.4vw, 92px);
+  color: #F3ECDD;
+  max-width: 62%;          /* keeps the two-line break intact on wide screens */
 }
-.hero-inner { position: relative; width: 100%; max-width: var(--wrap); margin: 0 auto; padding: 0 24px 76px; }
-.hero-headline { font-size: clamp(42px, 8.4vw, 92px); color: var(--bone); }
 .hero-sub {
-  margin-top: 20px; max-width: 34ch;
+  margin-top: 22px; max-width: 46ch;   /* the shortened subhead is 44 chars: one line on desktop, no orphan */
   color: var(--bone-dim); font-size: clamp(17px, 2.1vw, 20px);
   font-variation-settings: 'wdth' 100, 'wght' 500;
 }
+.hero-cta {
+  display: inline-block; margin-top: 34px;
+  color: var(--ground); background: var(--amber);
+  text-decoration: none; border-radius: 2px;
+  font-variation-settings: 'wdth' 92, 'wght' 700;
+  font-size: 14px; letter-spacing: 0.06em; text-transform: uppercase;
+  padding: 15px 26px;
+  transition: background-color 0.16s ease;
+}
+.hero-cta:hover { background: #F0B341; }
+
+/* The work grid starts immediately under the hero. The hero's own bottom
+   padding is the entire gap; the section adds none of its own. */
+#work { padding-top: 0; }
 
 /* ---------- blocks ---------- */
 .block { padding: 104px 0; }
@@ -205,6 +220,7 @@ img { display: block; max-width: 100%; height: auto; }
 
 /* ---------- mobile-first fallbacks ---------- */
 @media (max-width: 820px) {
+  .hero-headline { max-width: none; }
   .offers { grid-template-columns: 1fr; }
   .fit { grid-template-columns: 1fr; gap: 40px; }
   .block { padding: 76px 0; }
@@ -214,9 +230,9 @@ img { display: block; max-width: 100%; height: auto; }
 @media (max-width: 640px) {
   body { font-size: 18px; }
   .wrap, .bar, .hero-inner { padding-left: 18px; padding-right: 18px; }
-  .hero { min-height: 74vh; }
-  .hero-inner { padding-bottom: 52px; }
+  .hero { padding: clamp(48px, 12vh, 96px) 0 clamp(40px, 10vh, 80px); }
   .hero-sub { max-width: none; }
+  .hero-cta { margin-top: 28px; }
 
   /* Three phone screens are unreadable side by side at 380px.
      They stack. The Bellori's grid does NOT: 3x3 is what Instagram does. */

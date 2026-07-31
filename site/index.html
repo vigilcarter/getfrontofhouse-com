@@ -29,7 +29,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&display=swap" rel="stylesheet" />
-<link rel="preload" as="image" href="/images/hero-oven.webp" />
 <link rel="stylesheet" href="/styles.css" />
 </head>
 <body>
@@ -41,13 +40,15 @@
   </div>
 </header>
 
-<!-- HERO -->
+<!-- HERO
+     Type only. No image, no scrim, no full-bleed, no 100vh. The proof is the
+     work grid directly below, so the hero states the offer and gets out of
+     the way. Local positioning moved out of here and sits lower on the page. -->
 <section class="hero">
-  <img class="hero-img" src="/images/hero-oven.webp" alt="Forearms guiding a pizza on a wooden peel toward the glowing mouth of a wood oven" width="1074" height="510" fetchpriority="high" />
-  <div class="hero-scrim"></div>
   <div class="hero-inner">
     <h1 class="hero-headline">Sharp visual work<br />for restaurants<span class="dot">.</span></h1>
-    <p class="hero-sub">Menus, websites, social posts. Done this week. Metro Detroit, independents only.</p>
+    <p class="hero-sub">Menus, websites, social posts. Done this week.</p>
+    <a href="#contact" class="hero-cta">Send a sample</a>
   </div>
 </section>
 
