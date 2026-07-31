@@ -1,5 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <rect width="32" height="32" rx="6" fill="#faf5ec"/>
-  <text x="16" y="22" text-anchor="middle" font-family="Georgia, serif" font-size="20" font-weight="600" fill="#1a1614">F</text>
-  <circle cx="24.5" cy="22" r="2" fill="#b5563a"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Front of House">
+  <!-- The FH. mark, matched to the Instagram and Facebook avatar: charcoal
+       badge, hairline amber ring, cream serif letterforms, amber square for
+       the full stop. The avatar's full "F of H." and its FRONTOFHOUSE.COM ring
+       are dropped on purpose: both turn to mush below 48px, and this asset is
+       used at 16 and 32. Circle on a transparent field so it reads on light
+       and dark browser chrome alike. -->
+  <circle cx="16" cy="16" r="16" fill="#0F0C0A"/>
+  <circle cx="16" cy="16" r="14.4" fill="none" stroke="#E0A32E" stroke-width="0.8"/>
+  <text x="14.2" y="22.6" text-anchor="middle"
+        font-family="Georgia,'Times New Roman',Times,serif" font-size="17.5" fill="#F3ECDD">FH</text>
+  <rect x="24.1" y="19.6" width="3.1" height="3.1" fill="#E0A32E"/>
 </svg>
