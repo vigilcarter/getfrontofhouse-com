@@ -206,6 +206,20 @@ img { display: block; max-width: 100%; height: auto; }
 .contact-email:hover { border-bottom-color: var(--amber); }
 .contact-note { margin-top: 22px; color: var(--bone-faint); font-size: 18px; max-width: 52ch; }
 
+
+/* ---------- social ---------- */
+/* Monochrome outline glyphs only. Brand blue/gradient marks would be the one
+   loud thing on the page, so both icons inherit the page's own two colours:
+   cream at rest, the CTA amber on hover, matching every other accent here. */
+.nav-right, .footer-right { display: flex; align-items: center; gap: 18px; }
+.social { list-style: none; display: flex; align-items: center; gap: 14px; }
+.social-link {
+  display: inline-flex; color: #F3ECDD;
+  transition: color 0.16s ease;
+}
+.social-link:hover, .social-link:focus-visible { color: var(--amber); }
+.social-link svg { display: block; }
+
 /* ---------- footer ---------- */
 .site-footer { border-top: 1px solid var(--line); padding: 30px 0 44px; }
 .footer-meta { color: var(--bone-faint); font-size: 14px; }
@@ -229,6 +243,11 @@ img { display: block; max-width: 100%; height: auto; }
 
 @media (max-width: 640px) {
   body { font-size: 18px; }
+
+  /* The nav bar is wordmark + CTA at 390px with nothing to spare, so the nav
+     icons stand down there. The footer pair is the primary placement anyway. */
+  .social-nav { display: none; }
+  .footer-right { gap: 14px; }
   .wrap, .bar, .hero-inner { padding-left: 18px; padding-right: 18px; }
   .hero { padding: clamp(48px, 12vh, 96px) 0 clamp(40px, 10vh, 80px); }
   .hero-sub { max-width: none; }
