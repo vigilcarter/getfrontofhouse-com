@@ -6,3 +6,5 @@ Sitemap: https://getfrontofhouse.com/sitemap.xml
 # Unlisted outreach samples. Not for indexing.
 Disallow: /cafefarbella
 Disallow: /cafefarbella/
+Disallow: /waves
+Disallow: /waves/
