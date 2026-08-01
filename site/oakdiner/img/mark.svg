@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 410 180" aria-label="Oak Diner">
+  <g fill="#FBDD01">
+    <circle cx="85" cy="85" r="85"/><circle cx="205" cy="85" r="85"/><circle cx="325" cy="85" r="85"/>
+  </g>
+  <g fill="#030011">
+    <rect x="59" y="26" width="7" height="56" rx="3.5"/>
+    <rect x="81.5" y="26" width="7" height="56" rx="3.5"/>
+    <rect x="104" y="26" width="7" height="56" rx="3.5"/>
+    <path d="M59 72 h52 v14 c0 13 -9 21 -19 23 v71 h-14 v-71 c-10 -2 -19 -10 -19 -23 z"/>
+    <ellipse cx="205" cy="68" rx="27" ry="44"/>
+    <rect x="198.5" y="104" width="13" height="76" rx="5.5"/>
+    <path d="M334 26 c-11 20 -17 46 -17 68 v14 h17 z"/>
+    <rect x="327.5" y="104" width="13" height="76" rx="5.5"/>
+  </g>
+</svg>

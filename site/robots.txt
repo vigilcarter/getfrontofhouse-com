@@ -8,3 +8,5 @@ Disallow: /cafefarbella
 Disallow: /cafefarbella/
 Disallow: /waves
 Disallow: /waves/
+Disallow: /oakdiner
+Disallow: /oakdiner/
