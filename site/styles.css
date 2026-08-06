@@ -293,7 +293,11 @@ img { display: block; max-width: 100%; height: auto; }
 body{ background: var(--cream); color: var(--ink); }
 
 /* ---------- header and footer stay dark. The bookends hold the page. ---------- */
-.site-nav{ border-bottom: 1px solid rgba(244,239,230,.10); }
+/* Solid, not translucent. Over the old near-black page the 0.86 alpha read
+   as dark; over cream it blends to about rgb(48,44,41) and the header stops
+   looking like a header. The bookends have to be actually dark. */
+.site-nav{ background: var(--ground); backdrop-filter: none;
+           border-bottom: 1px solid rgba(244,239,230,.10); }
 .site-footer{ background: var(--ground); border-top: 0; padding: 30px 0; }
 .site-footer .wordmark{ color: var(--bone); }
 .site-footer .footer-meta{ color: var(--bone-faint); }
