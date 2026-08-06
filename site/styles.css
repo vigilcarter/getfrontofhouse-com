@@ -390,95 +390,104 @@ body{ background: var(--cream); color: var(--ink); }
   .contact-panel{ padding: 40px 26px; }
 }
 
-/* ---- HERO AS ONE SCENE (2026-08-06, replaces the split layout) -----------
-   The photograph fills the section; the copy sits on it over a directional
-   scrim that is darkest behind the words and clears toward the hostess and the
-   ALWAYS OPEN sign. Not a card, not a column, not a photo after the pitch.
+/* ---- HERO: SOFT BRANDED BACKDROP (2026-08-06) ---------------------------
+   Job-specific treatment. The photograph is synthetic, so a featured-portrait
+   crop reads as stock; a softened backdrop reads as intentional.
 
-   Geometry that drives the heights below: her face and the sign span about 82%
-   of the source height, so a short banner-shaped hero cannot hold both. The
-   hero is therefore tall on desktop and portrait-cropped on mobile. */
+   Structural problem this solves: the source is 1315px wide, so on a 1440 hero
+   `cover` scales it UP and can only ever crop harder. Two layers of the same
+   image fix it. A blown-out blurred wash fills the section edge to edge, and
+   the subject sits ON it contained, so the whole hostess stand and the whole
+   ALWAYS OPEN sign are visible without any accidental-looking crop. */
 
 .hero{
   position: relative; isolation: isolate;
   display: flex; align-items: center;
-  min-height: clamp(620px, 92vh, 920px);
+  min-height: clamp(540px, 76vh, 760px);
   padding: 0; overflow: hidden;
-  background: #14100D;
+  background: #17120E;
 }
 .hero-media{ position: absolute; inset: 0; z-index: 0; }
-.hero-media picture, .hero-media img{ display: block; width: 100%; height: 100%; }
-.hero-media img{ object-fit: cover; object-position: 50% 30%; filter: saturate(.98); }
+.hero-media picture{ position: absolute; inset: 0; display: block; }
+.hero-media img{ width: 100%; height: 100%; display: block; }
+
+/* the wash: same image, scaled past the edges and blurred into atmosphere */
+.hero-wash img{
+  object-fit: cover; object-position: 60% 45%;
+  transform: scale(1.18);
+  filter: blur(34px) saturate(.72) brightness(.62);
+}
+
+/* the subject: whole frame, contained, softened so it recedes */
+.hero-fig img{
+  object-fit: contain; object-position: right center;
+  filter: blur(1.6px) saturate(.86) contrast(.92) brightness(.94);
+}
 
 .hero-scrim{
   position: absolute; inset: 0; pointer-events: none;
   background:
     linear-gradient(100deg,
-      rgba(16,12,9,.94) 0%,
-      rgba(16,12,9,.88) 24%,
-      rgba(16,12,9,.62) 44%,
-      rgba(16,12,9,.26) 62%,
-      rgba(16,12,9,.06) 80%,
-      rgba(16,12,9,0)  100%),
-    linear-gradient(to top, rgba(16,12,9,.42) 0%, rgba(16,12,9,0) 34%);
+      rgba(20,15,11,.95) 0%,
+      rgba(20,15,11,.90) 26%,
+      rgba(20,15,11,.68) 44%,
+      rgba(20,15,11,.40) 58%,
+      rgba(20,15,11,.22) 72%,
+      rgba(20,15,11,.14) 100%),
+    linear-gradient(to top, rgba(20,15,11,.36) 0%, rgba(20,15,11,0) 30%);
 }
 
 .hero-inner{
   position: relative; z-index: 1;
   max-width: var(--wrap); margin: 0 auto; padding: 0 24px; width: 100%;
 }
-.hero-headline{ color: #FCF7EE; max-width: 15ch; text-shadow: 0 2px 30px rgba(16,12,9,.55); }
-.hero-sub{ color: #E6DCCD; max-width: 40ch; text-shadow: 0 1px 18px rgba(16,12,9,.7); }
+.hero-headline{ color: #FCF7EE; max-width: 15ch; text-shadow: 0 2px 30px rgba(20,15,11,.6); }
+.hero-sub{ color: #E8DFD1; max-width: 40ch; text-shadow: 0 1px 18px rgba(20,15,11,.75); }
 .hero-cta{ color: #241505; background: var(--amber); }
 .hero-cta:hover{ background: #F0B341; }
 
-/* the work grid used to butt straight onto the hero; give it its own air now
-   that the hero is a full scene rather than a padded type block */
 #work{ padding-top: 96px; }
 
 /* ---- tablet ---- */
 @media (max-width: 960px){
-  .hero{ min-height: clamp(520px, 74vh, 720px); }
-  .hero-media img{ object-position: 54% 24%; }
+  .hero{ min-height: clamp(520px, 70vh, 680px); }
+  .hero-fig img{ object-position: 62% center; }
   .hero-scrim{
     background:
       linear-gradient(105deg,
-        rgba(16,12,9,.94) 0%,
-        rgba(16,12,9,.84) 30%,
-        rgba(16,12,9,.52) 52%,
-        rgba(16,12,9,.18) 74%,
-        rgba(16,12,9,0)  96%),
-      linear-gradient(to top, rgba(16,12,9,.46) 0%, rgba(16,12,9,0) 38%);
+        rgba(20,15,11,.95) 0%,
+        rgba(20,15,11,.86) 32%,
+        rgba(20,15,11,.58) 54%,
+        rgba(20,15,11,.30) 76%,
+        rgba(20,15,11,.18) 100%),
+      linear-gradient(to top, rgba(20,15,11,.40) 0%, rgba(20,15,11,0) 34%);
   }
   #work{ padding-top: 72px; }
 }
 
-/* ---- phones: Android 360-390 is the primary target ----
-   The mobile crop is portrait, so the hero crops horizontally here and both
-   subjects survive. The scrim runs top-down so the headline and CTA read
-   against the darkest part while the sign stays clear lower right. */
+/* ---- phones: Android 360-390 first ----
+   Mobile was the closer of the two, so the structure is kept: portrait crop,
+   copy pinned low, steep bottom ramp. The crop is widened so the hostess reads
+   smaller and the sign carries more of the frame. */
 @media (max-width: 640px){
-  .hero{ min-height: clamp(600px, 88vh, 790px); align-items: flex-end; }
-  /* compact block, pinned low, so the ALWAYS line of the sign clears above it */
+  .hero{ min-height: clamp(580px, 86vh, 760px); align-items: flex-end; }
   .hero-inner{ padding: 0 20px 30px; }
-  .hero-headline{ font-size: 30px; line-height: 1.04; }
-  .hero-sub{ margin-top: 12px; font-size: 15.5px; }
+  .hero-headline{ font-size: 30px; line-height: 1.04; max-width: none; }
+  .hero-sub{ margin-top: 12px; font-size: 15.5px; max-width: none; }
   .hero-cta{ margin-top: 20px; padding: 13px 22px; font-size: 13.5px; }
-  .hero-media img{ object-position: 58% 50%; }
-  /* strongest at the bottom behind the copy, clearing upward so her face and
-     the smile read; the sign is white on dark so it survives the mid scrim */
+
+  .hero-fig img{ object-fit: cover; object-position: 72% 52%; filter: blur(1.2px) saturate(.88) contrast(.94); }
+  .hero-wash img{ transform: scale(1.22); filter: blur(30px) saturate(.7) brightness(.6); }
   .hero-scrim{
     background:
       linear-gradient(to top,
-        rgba(16,12,9,.96) 0%,
-        rgba(16,12,9,.92) 18%,
-        rgba(16,12,9,.70) 25%,
-        rgba(16,12,9,.26) 33%,
-        rgba(16,12,9,.10) 46%,
-        rgba(16,12,9,.04) 100%),
-      linear-gradient(to right, rgba(16,12,9,.26) 0%, rgba(16,12,9,0) 72%);
+        rgba(20,15,11,.96) 0%,
+        rgba(20,15,11,.92) 18%,
+        rgba(20,15,11,.70) 25%,
+        rgba(20,15,11,.28) 34%,
+        rgba(20,15,11,.12) 48%,
+        rgba(20,15,11,.06) 100%),
+      linear-gradient(to right, rgba(20,15,11,.24) 0%, rgba(20,15,11,0) 74%);
   }
-  .hero-headline{ max-width: none; }
-  .hero-sub{ max-width: none; }
   #work{ padding-top: 56px; }
 }
