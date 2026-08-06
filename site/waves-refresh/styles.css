@@ -16,7 +16,7 @@
   --on-navy:#F4EFE7;
   --on-navy-soft:#B9C6D0;
   --accent:#E57C28;
-  --accent-deep:#C2621A;
+  --accent-deep:#A9520F;   /* text-safe amber: 5.00:1 on cream, clears AA for small text */
   --line-dark:rgba(244,239,231,.16);
   --line-light:rgba(27,42,54,.14);
   --r-sm:4px;
