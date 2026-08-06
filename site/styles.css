@@ -402,13 +402,13 @@ body{ background: var(--cream); color: var(--ink); }
 .hero{
   position: relative; isolation: isolate;
   display: flex; align-items: center;
-  min-height: clamp(560px, 82vh, 840px);
+  min-height: clamp(620px, 92vh, 920px);
   padding: 0; overflow: hidden;
   background: #14100D;
 }
 .hero-media{ position: absolute; inset: 0; z-index: 0; }
 .hero-media picture, .hero-media img{ display: block; width: 100%; height: 100%; }
-.hero-media img{ object-fit: cover; object-position: 50% 22%; filter: saturate(.98); }
+.hero-media img{ object-fit: cover; object-position: 50% 30%; filter: saturate(.98); }
 
 .hero-scrim{
   position: absolute; inset: 0; pointer-events: none;
@@ -458,19 +458,21 @@ body{ background: var(--cream); color: var(--ink); }
    subjects survive. The scrim runs top-down so the headline and CTA read
    against the darkest part while the sign stays clear lower right. */
 @media (max-width: 640px){
-  .hero{ min-height: clamp(500px, 76vh, 660px); align-items: flex-start; }
-  .hero-inner{ padding: 52px 20px 0; }
-  .hero-media img{ object-position: 62% 30%; }
+  .hero{ min-height: clamp(560px, 84vh, 720px); align-items: flex-end; }
+  .hero-inner{ padding: 0 20px 40px; }
+  .hero-media img{ object-position: 60% 50%; }
+  /* strongest at the bottom behind the copy, clearing upward so her face and
+     the smile read; the sign is white on dark so it survives the mid scrim */
   .hero-scrim{
     background:
-      linear-gradient(to bottom,
-        rgba(16,12,9,.93) 0%,
-        rgba(16,12,9,.86) 26%,
-        rgba(16,12,9,.60) 44%,
-        rgba(16,12,9,.24) 62%,
-        rgba(16,12,9,.10) 80%,
-        rgba(16,12,9,.18) 100%),
-      linear-gradient(to right, rgba(16,12,9,.34) 0%, rgba(16,12,9,0) 62%);
+      linear-gradient(to top,
+        rgba(16,12,9,.95) 0%,
+        rgba(16,12,9,.90) 24%,
+        rgba(16,12,9,.66) 40%,
+        rgba(16,12,9,.34) 56%,
+        rgba(16,12,9,.14) 72%,
+        rgba(16,12,9,.06) 100%),
+      linear-gradient(to right, rgba(16,12,9,.30) 0%, rgba(16,12,9,0) 70%);
   }
   .hero-headline{ max-width: none; }
   .hero-sub{ max-width: none; }
