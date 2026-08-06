@@ -1,169 +1,216 @@
-/* Waves Chill & Grill, concept sample.
+/* Waves Chill & Grill - Front of House concept, image-led revision.
+   Palette from their own assets and the supplied photography:
+     #0E2436 navy (their header hours boxes, driven down)
+     #E57C28 amber, THE single accent (their carry-out box, and the sunset in the hero)
+     #FBF6EC warm cream, used to break up the dark and keep the page bright
+   One accent. One radius scale. Light and dark alternate by section, deliberately,
+   so the page never becomes a single dark expanse. */
 
-   The job is edit, not redesign. Their identity stays: the wave logo is used
-   as supplied and never redrawn, and every colour below except the ground and
-   the cream is sampled straight out of that logo file.
-
-   Their current site fires five brights at once (magenta, purple, teal, green,
-   orange) across four competing callout boxes on a wood-panel background. That
-   is the dated part, and it is not a colour problem so much as a hierarchy
-   problem. So: one deep ground, one accent, and the logo is the only place all
-   five colours appear. Restraint is the pitch, made visible. */
-
-:root {
-  --ground:  #0A1E2C;   /* deep ocean navy, the page */
-  --raised:  #102A3C;   /* the one band that sits above it */
-  --cream:   #F4EFE6;
-  --dim:     #B9C6CF;   /* 9.75:1 on the ground */
-  --accent:  #F16B22;   /* their orange, sampled from the logo. The only accent. */
-  --line:    rgba(244, 239, 230, 0.14);
-  --wrap:    1120px;
+:root{
+  --navy:#0E2436;
+  --navy-deep:#0A1B29;
+  --cream:#FBF6EC;
+  --cream-2:#F3EADA;
+  --ink:#1B2A36;          /* body text on cream */
+  --ink-soft:#5A6B79;
+  --on-navy:#F4EFE7;
+  --on-navy-soft:#B9C6D0;
+  --accent:#E57C28;
+  --accent-deep:#A9520F;   /* text-safe amber: 5.00:1 on cream, clears AA for small text */
+  --line-dark:rgba(244,239,231,.16);
+  --line-light:rgba(27,42,54,.14);
+  --r-sm:4px;
+  --r-md:8px;
+  --r-lg:14px;
+  --wrap:1160px;
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
-html { -webkit-text-size-adjust: 100%; }
-
-body {
-  background: var(--ground);
-  color: var(--cream);
-  font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  font-size: 18px;
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--cream);color:var(--ink);
+  font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  font-weight:300;line-height:1.62;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;                 /* belt and braces against sideways scroll */
 }
-img { display: block; max-width: 100%; height: auto; }
+img{max-width:100%;height:auto;display:block}
+ul{margin:0;padding:0;list-style:none}
+p{margin:0}
+h1,h2{font-family:Fraunces,Georgia,serif;font-weight:600;letter-spacing:-.015em;margin:0;text-wrap:balance}
 
-.wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 28px; }
+.wrap{width:100%;max-width:var(--wrap);margin:0 auto;padding:0 26px}
+.center{text-align:center}
 
-/* The full stop after the headline, in their orange. One small accent, and
-   the only decorative mark on the page. */
-.mark { color: var(--accent); }
+.btn{
+  display:inline-block;padding:14px 28px;border-radius:var(--r-md);
+  font-size:15px;font-weight:500;letter-spacing:.01em;
+}
+.btn-solid{background:var(--accent);color:#25120A}
+.btn-line{border:1px solid rgba(244,239,231,.5);color:var(--on-navy)}
+.btns{display:flex;flex-wrap:wrap;gap:12px}
 
-/* ---------- bar ---------- */
-.bar { border-bottom: 1px solid var(--line); padding: 18px 0; }
-.bar-in { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
-.bar-logo { height: 42px; width: auto; }
-.bar-tel { color: var(--dim); font-size: 15px; font-weight: 500; letter-spacing: 0.01em; white-space: nowrap; }
+.eyebrow{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:16px}
+.eyebrow.accent{color:var(--accent-deep)}
 
-/* ---------- hero ----------
-   Type-forward, image supporting. No min-height and no 100vh: the padding sets
-   the height, so the info band is never pushed off the first screen. */
-.hero { position: relative; overflow: hidden; padding: 96px 0 104px; }
-.hero-media { position: absolute; inset: 0; }
-.hero-media img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 58%; }
-/* Two layers. The horizontal wash holds near-solid out to 54%, past where the
-   longest headline line ends, so the type never depends on where the photo
-   happens to crop. Verified by rendering the page with the copy hidden and
-   measuring the background directly: brightest point under the copy is
-   rgb(28,43,53) on desktop and rgb(57,70,74) on mobile, so cream sits at
-   12.7:1 and 8.5:1. Measuring with the text visible does not work, it just
-   finds glyph antialiasing. */
-.hero-veil {
-  position: absolute; inset: 0;
+/* ---------- top bar (cream, keeps the page bright from the first pixel) ---------- */
+.bar{background:var(--cream);padding:18px 0;border-bottom:1px solid var(--line-light)}
+.bar-in{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.bar-logo{width:148px;height:auto}
+.bar-right{display:flex;align-items:center;gap:20px}
+.bar-hail{font-family:Fraunces,Georgia,serif;font-size:15px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-deep)}
+.bar-tel{font-size:15px;color:var(--ink);white-space:nowrap}
+
+/* ---------- hero ---------- */
+.hero{position:relative;min-height:660px;display:flex;align-items:flex-end;overflow:hidden;background:var(--navy-deep)}
+.hero picture{position:absolute;inset:0}
+.hero-img{width:100%;height:100%;object-fit:cover;object-position:58% 42%}
+.hero-scrim{
+  position:absolute;inset:0;
   background:
-    linear-gradient(90deg, rgba(10,30,44,0.975) 0%, rgba(10,30,44,0.95) 54%, rgba(10,30,44,0.55) 78%, rgba(10,30,44,0.32) 100%),
-    linear-gradient(180deg, rgba(10,30,44,0.55) 0%, rgba(10,30,44,0.10) 40%, rgba(10,30,44,0.72) 100%);
+    linear-gradient(to top, rgba(10,27,41,.94) 0%, rgba(10,27,41,.86) 22%, rgba(10,27,41,.62) 40%, rgba(10,27,41,.24) 58%, rgba(10,27,41,0) 78%),
+    linear-gradient(to right, rgba(10,27,41,.72) 0%, rgba(10,27,41,.34) 38%, rgba(10,27,41,0) 68%);
 }
-.hero-in { position: relative; }
-.hero-logo { height: 96px; width: auto; margin-bottom: 40px; }
-.hero h1 {
-  font-size: 60px; line-height: 1.06; letter-spacing: -0.022em;
-  font-weight: 600; color: var(--cream); max-width: 20ch;  /* holds the authored two-line break */
+.hero-in{position:relative;padding:0 26px 62px;width:100%}
+.kicker{
+  display:flex;align-items:center;gap:12px;
+  font-size:12px;letter-spacing:.2em;text-transform:uppercase;
+  color:#FBDCBB;margin-bottom:20px;text-shadow:0 1px 3px rgba(10,27,41,.95),0 2px 18px rgba(10,27,41,.85);
 }
-.hero-sub {
-  margin-top: 22px; max-width: 44ch;
-  color: var(--dim); font-size: 20px; font-weight: 400; line-height: 1.55;
+.dot{width:5px;height:5px;border-radius:50%;background:var(--accent);display:inline-block;flex:none}
+.hero h1{
+  font-size:60px;line-height:1.05;color:#fff;max-width:17ch;margin-bottom:20px;
+  text-shadow:0 2px 26px rgba(10,27,41,.6);
+}
+.hero-sub{
+  font-size:19px;line-height:1.5;color:#EFE6DA;max-width:44ch;margin-bottom:30px;
+  text-shadow:0 1px 16px rgba(10,27,41,.75);
 }
 
-/* ---------- buttons (styled spans: nothing here is clickable) ---------- */
-.btns { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 38px; }
-.btn {
-  display: inline-block; padding: 15px 30px; border-radius: 2px;
-  font-size: 14px; font-weight: 600; letter-spacing: 0.09em; text-transform: uppercase;
-  user-select: none;
+/* ---------- legacy ---------- */
+.legacy{position:relative;min-height:600px;display:flex;align-items:center;overflow:hidden;background:var(--navy-deep)}
+.legacy picture{position:absolute;inset:0}
+.legacy-img{width:100%;height:100%;object-fit:cover;object-position:center 55%}
+.legacy-scrim{
+  position:absolute;inset:0;
+  background:linear-gradient(100deg, rgba(10,27,41,.94) 0%, rgba(10,27,41,.88) 34%, rgba(10,27,41,.62) 55%, rgba(10,27,41,.20) 78%, rgba(10,27,41,.06) 100%);
 }
-.btn-solid { background: var(--accent); color: #0A1E2C; }
-.btn-line  { border: 1px solid rgba(244,239,230,0.45); color: var(--cream); }
+.legacy-in{position:relative;width:100%;padding-top:78px;padding-bottom:78px}
+.legacy-card{max-width:30rem}
+.legacy-card .eyebrow{color:#F0B583}
+.legacy h2{font-size:40px;line-height:1.14;color:#fff;margin-bottom:18px}
+.legacy-card p{font-size:17px;line-height:1.72;color:#EAE4DA;text-shadow:0 1px 10px rgba(10,27,41,.75)}
+.facts{display:flex;flex-wrap:wrap;gap:34px;margin-top:34px;padding-top:26px;border-top:1px solid var(--line-dark)}
+.f-num{display:block;font-family:Fraunces,Georgia,serif;font-size:27px;color:var(--accent);line-height:1.1}
+.f-lab{display:block;font-size:13px;letter-spacing:.06em;color:#D6DFE6;margin-top:5px;text-shadow:0 1px 8px rgba(10,27,41,.8)}
 
-/* ---------- the one calm band ---------- */
-.band { background: var(--raised); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-.band-list {
-  list-style: none; display: flex; flex-wrap: wrap; justify-content: center;
-  gap: 14px 56px; padding: 30px 0;
-  font-size: 15px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase;
-  color: var(--cream);
+/* ---------- social (cream) ---------- */
+.social{background:var(--cream);padding:92px 0}
+.social-in{display:grid;grid-template-columns:1fr 1.06fr;gap:60px;align-items:center}
+.social h2{font-size:42px;line-height:1.12;margin-bottom:20px}
+.social .lead{font-size:19px;line-height:1.62;color:var(--ink);margin-bottom:18px}
+.social-copy p{font-size:16.5px;line-height:1.72;color:var(--ink-soft);max-width:42ch}
+.social-copy .btns{margin-top:30px}
+.social-fig{margin:0;border-radius:var(--r-lg);overflow:hidden;box-shadow:0 20px 50px rgba(27,42,54,.18)}
+.social-fig img{width:100%;height:100%;object-fit:cover}
+
+/* ---------- taste (deep navy band, kept short on purpose) ---------- */
+.taste{background:var(--navy);color:var(--on-navy);padding:86px 0}
+.taste .eyebrow{color:#F0B583}
+.taste h2{font-size:36px;line-height:1.16;color:#fff;margin-bottom:14px}
+.taste-note{font-size:16.5px;color:var(--on-navy-soft);max-width:52ch;margin:0 auto 46px}
+.taste-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px}
+.t-head{
+  font-family:Fraunces,Georgia,serif;font-size:19px;color:var(--accent);
+  padding-bottom:12px;margin-bottom:16px;border-bottom:1px solid var(--line-dark);
 }
+.taste-col li{font-size:15.5px;line-height:1.6;color:var(--on-navy-soft);padding:9px 0}
+
+/* ---------- rooms (cream) ---------- */
+.rooms{background:var(--cream-2);padding:74px 0}
+.rooms-in{display:grid;grid-template-columns:repeat(4,1fr);gap:34px}
+.r-head{font-family:Fraunces,Georgia,serif;font-size:20px;color:var(--ink);margin-bottom:9px}
+.room p{font-size:15.5px;line-height:1.66;color:var(--ink-soft)}
 
 /* ---------- visit ---------- */
-.visit { padding: 92px 0 88px; }
-.visit-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 56px; }
-.eyebrow {
-  color: var(--accent); font-size: 12px; font-weight: 700;
-  letter-spacing: 0.17em; text-transform: uppercase; margin-bottom: 16px;
-}
-.visit-lead { font-size: 26px; font-weight: 600; letter-spacing: -0.01em; line-height: 1.25; }
-.visit-note { margin-top: 10px; color: var(--dim); font-size: 17px; line-height: 1.55; }
-.visit-tel { font-size: 26px; font-weight: 600; letter-spacing: -0.01em; margin-bottom: 22px; }
+.visit{background:var(--cream);padding:84px 0}
+.visit-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:46px}
+.visit-lead{font-family:Fraunces,Georgia,serif;font-size:22px;line-height:1.34;margin-bottom:8px}
+.visit-tel{font-family:Fraunces,Georgia,serif;font-size:22px;color:var(--accent-deep);margin-bottom:16px}
+.visit-note{font-size:15px;line-height:1.66;color:var(--ink-soft)}
 
 /* ---------- footer ---------- */
-.foot { border-top: 1px solid var(--line); padding: 54px 0 0; }
-.foot-in { display: flex; align-items: center; justify-content: space-between; gap: 26px; flex-wrap: wrap; }
-.foot-logo { height: 54px; width: auto; }
-.foot-line { color: var(--dim); font-size: 16px; }
-.sep { color: var(--accent); margin: 0 6px; }
+.foot{background:var(--navy-deep);color:var(--on-navy);padding:46px 0 0}
+.foot-in{display:flex;align-items:center;justify-content:space-between;gap:22px;flex-wrap:wrap}
+.foot-logo{width:132px;height:auto}
+.foot-line{font-size:14.5px;color:var(--on-navy-soft)}
+.sep{opacity:.5;padding:0 4px}
+.credit{max-width:var(--wrap);margin:36px auto 0;padding:24px 26px 36px;border-top:1px solid var(--line-dark)}
+.credit-invite{font-size:14px;color:var(--on-navy-soft);margin-bottom:6px}
+.credit-line{font-size:12.5px;line-height:1.62;color:rgba(185,198,208,.62);max-width:92ch}
 
-/* The invitation reads brighter than the disclaimer on purpose: the posture is
-   an offer, not a fait accompli. The disclaimer still has to be unmissable,
-   because a prospect's real site is often dead and a stray visitor could
-   otherwise take this for the live one. */
-.credit { margin-top: 54px; border-top: 1px solid var(--line); padding: 26px 28px 40px; text-align: center; }
-.credit-invite { color: var(--dim); font-size: 15px; max-width: 60ch; margin: 0 auto; }
-.credit-line { color: rgba(244,239,230,0.42); font-size: 13px; margin-top: 8px; }
-
-/* ---------- responsive ----------
-   Explicit per-breakpoint type and spacing rather than one clamp curve bent to
-   fit both. Each screen gets sizes chosen for it. */
-@media (max-width: 900px) {
-  .visit-grid { grid-template-columns: 1fr 1fr; gap: 44px; }
-  .hero h1 { font-size: 48px; }
-  .hero-logo { height: 82px; }
+/* ---------- tablet ---------- */
+@media (max-width:960px){
+  .hero{min-height:580px}
+  .hero h1{font-size:46px;max-width:15ch}
+  .hero-sub{font-size:17.5px}
+  .legacy{min-height:540px}
+  .legacy h2{font-size:33px}
+  .legacy-card{max-width:none}
+  .social{padding:74px 0}
+  .social-in{grid-template-columns:1fr;gap:38px}
+  .social-copy{order:2}
+  .social-fig{order:1}
+  .social h2{font-size:35px}
+  .social-copy p{max-width:none}
+  .taste-grid{grid-template-columns:1fr 1fr;gap:32px}
+  .rooms-in{grid-template-columns:1fr 1fr;gap:30px}
+  .visit-grid{grid-template-columns:1fr 1fr;gap:34px}
 }
 
-@media (max-width: 640px) {
-  body { font-size: 17px; }
-  .wrap { padding: 0 20px; }
+/* ---------- phone: designed, not reflowed ---------- */
+@media (max-width:640px){
+  .wrap{padding:0 20px}
+  .bar{padding:15px 0}
+  .bar-logo{width:116px}
+  .bar-hail{display:none}
+  .bar-tel{font-size:14px}
 
-  .bar { padding: 14px 0; }
-  .bar-logo { height: 34px; }
-  .bar-tel { font-size: 14px; }
-
-  /* On a phone the image is atmosphere, not information, so the wash goes
-     almost solid. The type must never depend on where the photo crops. */
-  .hero { padding: 56px 0 64px; }
-  .hero-veil {
-    background:
-      linear-gradient(180deg, rgba(10,30,44,0.90) 0%, rgba(10,30,44,0.80) 45%, rgba(10,30,44,0.94) 100%);
+  .hero{min-height:0;height:78vh;max-height:600px}
+  /* crop toward the drinks and the lit patio, away from the empty sky */
+  .hero-img{object-position:62% 40%}
+  .hero-scrim{
+    background:linear-gradient(to top, rgba(10,27,41,.95) 0%, rgba(10,27,41,.78) 30%, rgba(10,27,41,.24) 58%, rgba(10,27,41,0) 80%);
   }
-  .hero-logo { height: 64px; margin-bottom: 28px; }
-  .hero h1 { font-size: 34px; line-height: 1.12; max-width: none; }
-  .hero-sub { font-size: 17px; margin-top: 16px; max-width: none; }
-  .btns { gap: 10px; margin-top: 28px; }
-  .btn { padding: 14px 22px; font-size: 13px; }
+  .hero-in{padding:0 20px 38px}
+  .kicker{font-size:11px;letter-spacing:.15em;margin-bottom:14px}
+  .hero h1{font-size:33px;line-height:1.1;max-width:none;margin-bottom:14px}
+  .hero-sub{font-size:16px;margin-bottom:24px;max-width:none}
+  .btn{padding:13px 22px;font-size:14.5px}
 
-  /* 2x2 reads as a deliberate grid; wrapping 3+1 leaves "Bar" orphaned. */
-  .band-list {
-    display: grid; grid-template-columns: 1fr 1fr; justify-items: center;
-    gap: 14px 20px; padding: 22px 0; font-size: 13px; letter-spacing: 0.11em;
-  }
+  .legacy{min-height:0}
+  .legacy-scrim{background:linear-gradient(to bottom, rgba(10,27,41,.62) 0%, rgba(10,27,41,.80) 45%, rgba(10,27,41,.92) 100%)}
+  .legacy-in{padding-top:52px;padding-bottom:52px}
+  .legacy h2{font-size:29px}
+  .legacy-card p{font-size:16px}
+  .facts{gap:24px;margin-top:28px}
+  .f-num{font-size:23px}
 
-  .visit { padding: 56px 0 52px; }
-  .visit-grid { grid-template-columns: 1fr; gap: 38px; }
-  .visit-lead, .visit-tel { font-size: 22px; }
+  .social{padding:56px 0}
+  .social h2{font-size:30px}
+  .social .lead{font-size:17px}
+  .social-copy p{font-size:15.5px}
 
-  .foot { padding-top: 40px; }
-  .foot-in { justify-content: flex-start; gap: 18px; }
-  .foot-logo { height: 44px; }
-  .foot-line { font-size: 15px; }
-  .credit { margin-top: 36px; padding: 22px 20px 34px; }
+  .taste{padding:58px 0}
+  .taste h2{font-size:27px}
+  .taste-note{margin-bottom:34px;font-size:15.5px}
+  .taste-grid{grid-template-columns:1fr;gap:30px}
+
+  .rooms{padding:52px 0}
+  .rooms-in{grid-template-columns:1fr;gap:26px}
+
+  .visit{padding:56px 0}
+  .visit-grid{grid-template-columns:1fr;gap:32px}
+
+  .credit{padding-bottom:32px}
 }
