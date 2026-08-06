@@ -458,21 +458,25 @@ body{ background: var(--cream); color: var(--ink); }
    subjects survive. The scrim runs top-down so the headline and CTA read
    against the darkest part while the sign stays clear lower right. */
 @media (max-width: 640px){
-  .hero{ min-height: clamp(560px, 84vh, 720px); align-items: flex-end; }
-  .hero-inner{ padding: 0 20px 40px; }
-  .hero-media img{ object-position: 60% 50%; }
+  .hero{ min-height: clamp(600px, 88vh, 790px); align-items: flex-end; }
+  /* compact block, pinned low, so the ALWAYS line of the sign clears above it */
+  .hero-inner{ padding: 0 20px 30px; }
+  .hero-headline{ font-size: 30px; line-height: 1.04; }
+  .hero-sub{ margin-top: 12px; font-size: 15.5px; }
+  .hero-cta{ margin-top: 20px; padding: 13px 22px; font-size: 13.5px; }
+  .hero-media img{ object-position: 58% 50%; }
   /* strongest at the bottom behind the copy, clearing upward so her face and
      the smile read; the sign is white on dark so it survives the mid scrim */
   .hero-scrim{
     background:
       linear-gradient(to top,
-        rgba(16,12,9,.95) 0%,
-        rgba(16,12,9,.90) 24%,
-        rgba(16,12,9,.66) 40%,
-        rgba(16,12,9,.34) 56%,
-        rgba(16,12,9,.14) 72%,
-        rgba(16,12,9,.06) 100%),
-      linear-gradient(to right, rgba(16,12,9,.30) 0%, rgba(16,12,9,0) 70%);
+        rgba(16,12,9,.96) 0%,
+        rgba(16,12,9,.92) 18%,
+        rgba(16,12,9,.70) 25%,
+        rgba(16,12,9,.26) 33%,
+        rgba(16,12,9,.10) 46%,
+        rgba(16,12,9,.04) 100%),
+      linear-gradient(to right, rgba(16,12,9,.26) 0%, rgba(16,12,9,0) 72%);
   }
   .hero-headline{ max-width: none; }
   .hero-sub{ max-width: none; }
