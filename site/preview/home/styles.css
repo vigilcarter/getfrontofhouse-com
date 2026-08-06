@@ -279,8 +279,9 @@ img { display: block; max-width: 100%; height: auto; }
   --cream-2:    #EFE7D8;   /* cream panel inset */
   --ink:        #17120F;   /* type on cream */
   --ink-dim:    #5A5049;   /* secondary type on cream */
-  --warm-dark:  #17120F;   /* third tone: warmer than --ground, softer than black */
-  --warm-raise: #211A15;   /* panel on warm-dark */
+  --warm-dark:  #201813;   /* third tone. lifted from #17120F, which was too close to
+                              --ground to actually read as a separate surface. */
+  --warm-raise: #2A211A;   /* panel on warm-dark */
   --amber-ink:  #8A5A08;   /* amber dark enough to sit on cream (AA) */
 }
 
