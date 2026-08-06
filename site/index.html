@@ -63,10 +63,25 @@
        616px wide. On mobile the image belongs BELOW the CTA, full-bleed, about
        390x420, so the offer and the button are read before the picture.
        Nothing is rendered here yet, deliberately. -->
-  <div class="hero-inner">
-    <h1 class="hero-headline">Sharp visual work<br />for restaurants<span class="dot">.</span></h1>
-    <p class="hero-sub">Menus, websites, social posts. Done this week.</p>
-    <a href="#contact" class="hero-cta">Send a sample</a>
+  <div class="hero-grid">
+    <div class="hero-inner">
+      <h1 class="hero-headline">Sharp visual work<br />for restaurants<span class="dot">.</span></h1>
+      <p class="hero-sub">Menus, websites, social posts. Done this week.</p>
+      <a href="#contact" class="hero-cta">Send a sample</a>
+    </div>
+
+    <!-- HERO IMAGE SLOT. Technically ready, deliberately empty.
+         Paste the block below when the approved asset lands. Nothing else needs
+         to change: .hero-grid:has(.hero-media) switches to two columns on
+         desktop and stacks the image under the CTA on mobile, automatically.
+
+    <div class="hero-media">
+      <picture>
+        <source media="(max-width: 700px)" srcset="/images/hero-mobile.webp" />
+        <img src="/images/hero-desktop.webp" alt="" width="1232" height="1120" fetchpriority="high" />
+      </picture>
+    </div>
+    -->
   </div>
 </section>
 
@@ -77,8 +92,8 @@
     <h2 class="section-headline">What we make<span class="dot">.</span></h2>
   </div>
 
-  <!-- 1. Mom's Coney Island -->
-  <article class="piece reveal">
+  <!-- 1. Mom's Coney Island. Cream. -->
+  <article class="piece piece--cream reveal">
     <div class="wrap">
       <p class="piece-label">Mom&rsquo;s Coney Island <span class="sep">&middot;</span> <em>Google listing</em></p>
     </div>
@@ -90,8 +105,8 @@
     </div>
   </article>
 
-  <!-- 2. Halim's Kitchen -->
-  <article class="piece reveal">
+  <!-- 2. Halim's Kitchen. Soft neutral. -->
+  <article class="piece piece--neutral reveal">
     <div class="wrap">
       <p class="piece-label">Halim&rsquo;s Kitchen <span class="sep">&middot;</span> <em>Website</em></p>
     </div>
@@ -107,8 +122,9 @@
     </div>
   </article>
 
-  <!-- 3. Bellori's -->
-  <article class="piece reveal">
+  <!-- 3. Bellori's. Dark showcase: the nine tiles are the most dramatic
+       asset on the page and they earn the one dark stage. -->
+  <article class="piece piece--dark reveal">
     <div class="wrap">
       <p class="piece-label">Bellori&rsquo;s <span class="sep">&middot;</span> <em>Social</em></p>
     </div>

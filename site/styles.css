@@ -266,96 +266,140 @@ img { display: block; max-width: 100%; height: auto; }
   .contact-headline { max-width: none; }
   .contact-panel { padding: 36px 22px; }
 }
+
 /* ==========================================================================
-   WARMTH, BREATHING ROOM AND RHYTHM (shipped 2026-08-06).
-   Appended rather than woven in, so this pass stays reviewable as one block.
-   Mobile is the priority. The dark identity stays; the
-   point is that the page stops being ONE dark value from top to bottom.
+   LIGHT CANVAS (shipped 2026-08-06)
+   The page inverts: a warm cream canvas with dark bookends, and dark used only
+   where it makes the work more dramatic. Appended as one block so this pass
+   stays reviewable and reversible.
+
+   Surface sequence, deliberate:
+     nav dark, hero cream, Mom's cream, Halim's soft neutral,
+     Bellori's DARK showcase, services cream, Fit soft neutral,
+     Contact cream with a dark panel, footer dark.
    ========================================================================== */
 
 :root{
-  --cream:      #F7F1E6;   /* the tonal break. one section only. */
-  --cream-2:    #EFE7D8;   /* cream panel inset */
-  --ink:        #17120F;   /* type on cream */
-  --ink-dim:    #5A5049;   /* secondary type on cream */
-  --warm-dark:  #201813;   /* third tone. lifted from #17120F, which was too close to
-                              --ground to actually read as a separate surface. */
-  --warm-raise: #2A211A;   /* panel on warm-dark */
-  --amber-ink:  #8A5A08;   /* amber dark enough to sit on cream (AA) */
+  --cream:     #FAF5EC;   /* the canvas */
+  --neutral:   #F1EADD;   /* soft neutral, the second light surface */
+  --stage:     #14110F;   /* dark showcase, slightly warmer than the nav ground */
+  --ink:       #1E1A16;   /* primary type on light */
+  --ink-2:     #58514A;   /* secondary type on light */
+  --amber-ink: #8A5A08;   /* amber dark enough to be READ on cream */
+  --rule:      rgba(30,26,22,.14);
+  --rule-soft: rgba(30,26,22,.09);
 }
 
-/* ---- 1. HERO. More air above and below, and a measured copy column so a
-        future hero image can take the right side without moving anything. ---- */
-.hero{ padding: clamp(72px, 15vh, 172px) 0 clamp(64px, 13vh, 150px); }
-.hero-inner{ max-width: var(--wrap); }
-.hero-headline{ max-width: 15ch; }
-.hero-sub{ max-width: 46ch; }
+body{ background: var(--cream); color: var(--ink); }
+
+/* ---------- header and footer stay dark. The bookends hold the page. ---------- */
+.site-nav{ border-bottom: 1px solid rgba(244,239,230,.10); }
+.site-footer{ background: var(--ground); border-top: 0; padding: 30px 0; }
+.site-footer .wordmark{ color: var(--bone); }
+.site-footer .footer-meta{ color: var(--bone-faint); }
+.site-footer .social-link{ color: var(--bone-dim); }
+
+/* ---------- hero on cream, ready for the image column ---------- */
+.hero{ background: var(--cream); padding: clamp(64px,11vh,132px) 0 clamp(56px,10vh,116px); }
+.hero-headline{ color: var(--ink); max-width: 18ch; }
+.hero-sub{ color: var(--ink-2); }
+.hero-cta{ color: #241505; background: var(--amber); }
+.hero-cta:hover{ background: #F0B341; }
+
+/* Single column until an image exists, so there is no empty reserved void.
+   Adding .hero-media switches this to two columns with no other edit. */
+.hero-grid{ max-width: var(--wrap); margin: 0 auto; }
+.hero-grid .hero-inner{ max-width: none; }
 @media (min-width: 961px){
-  .hero-inner{ max-width: 640px; margin-left: max(24px, calc((100vw - var(--wrap)) / 2 + 24px)); margin-right: 0; }
+  .hero-grid:has(.hero-media){
+    max-width: none; display: grid; align-items: center; gap: 56px;
+    grid-template-columns: minmax(0,1fr) minmax(0,46vw);
+    padding-left: max(24px, calc((100vw - var(--wrap)) / 2 + 24px));
+  }
+  .hero-grid:has(.hero-media) .hero-inner{ padding: 0; max-width: 34rem; }
+  .hero-grid:has(.hero-media) .hero-media{ justify-self: stretch; }
+  .hero-media img{ width: 100%; height: clamp(420px,54vh,620px); object-fit: cover;
+                   border-radius: 14px 0 0 14px; }
+}
+.hero-media{ margin-top: 34px; }
+.hero-media img{ width: 100%; border-radius: 12px; }
+
+/* ---------- section rhythm ---------- */
+.block{ padding: 104px 0; }
+.section-headline{ color: var(--ink); }
+.eyebrow{ color: var(--amber-ink); }
+
+/* ---------- work pieces: three surfaces, full-bleed bands ---------- */
+.piece{ margin-top: 0; padding: 84px 0; }
+.piece:first-of-type{ margin-top: 0; }
+.piece--cream{ background: var(--cream); }
+.piece--neutral{ background: var(--neutral); }
+.piece--dark{ background: var(--stage); }
+
+.piece-label{ color: var(--amber-ink); letter-spacing: .15em; }
+.piece-label em, .piece-label .sep{ color: var(--ink-2); }
+.piece-caption{ color: var(--ink-2); max-width: 60ch; }
+.piece-caption strong{ color: var(--ink); }
+
+/* the dark stage flips its own type back to bone */
+.piece--dark .piece-label{ color: var(--amber); }
+.piece--dark .piece-label em, .piece--dark .piece-label .sep{ color: var(--bone-faint); }
+.piece--dark .piece-caption{ color: var(--bone-dim); }
+.piece--dark .piece-caption strong{ color: var(--bone); }
+
+/* imagery gets scale and air. it is the proof, so it gets the room. */
+.piece-media{ margin-bottom: 30px; }
+.piece-media img, .screens img, .ig{ border-radius: 10px; }
+.piece--cream .piece-media img, .piece--neutral .piece-media img,
+.piece--cream .screens img, .piece--neutral .screens img{
+  box-shadow: 0 18px 44px rgba(30,26,22,.16), 0 0 0 1px var(--rule-soft);
+}
+.piece--dark .ig{ box-shadow: 0 22px 56px rgba(0,0,0,.55); overflow: hidden; }
+@media (min-width: 1100px){
+  .piece-media.wrap{ max-width: 1240px; }
 }
 
-/* ---- 2. SERVICES BAND -> CREAM. The single biggest warmth move: it splits the
-        page tonally in half instead of running one dark value the whole way. ---- */
-.band{ background: var(--cream); color: var(--ink); }
-.band .eyebrow{ color: var(--amber-ink); }
-.band .section-headline{ color: var(--ink); }
-.band .section-headline .dot{ color: var(--amber-ink); }
-.offers{ background: rgba(23,18,15,.14); margin-top: 52px; }
-.offer{ background: var(--cream); padding: 42px 38px; }
+/* ---------- services: clearly warm and light ---------- */
+.band{ background: var(--cream); }
+.offers{ background: var(--rule); margin-top: 48px; }
+.offer{ background: var(--neutral); padding: 42px 36px; }
 .offer h3{ color: var(--ink); }
-.offer p{ color: var(--ink-dim); }
+.offer p{ color: var(--ink-2); }
 
-/* ---- 3. FIT -> WARM DARK. A third tone, so the page reads dark / cream / warm
-        dark rather than black / black / black. ---- */
-.block:has(.fit){ background: var(--warm-dark); }
-.fit{ margin-top: 52px; gap: 64px; }
+/* ---------- fit: soft neutral, distinct from contact ---------- */
+.block:has(.fit){ background: var(--neutral); }
+.fit{ margin-top: 48px; gap: 60px; }
+.fit-col h3{ border-bottom-color: var(--rule); }
+.fit-yes{ color: var(--amber-ink); }
+.fit-no{ color: var(--ink-2); }
+.fit-col li{ color: var(--ink-2); border-bottom-color: var(--rule); }
 
-/* ---- 4. IMAGERY BREATHES. Live, the work images bleed straight into pure
-        black with hard edges. A soft warm mat and a radius let them sit on the
-        page instead of falling off it. ---- */
-.piece-media img,
-.screens img,
-.ig{ border-radius: 10px; }
-.piece-media{ margin-bottom: 30px; }
-.piece{ margin-top: 104px; }
-.piece:first-of-type{ margin-top: 64px; }
-.piece-media > img,
-.screens > img{ box-shadow: 0 18px 44px rgba(0,0,0,.5), 0 0 0 1px rgba(244,239,230,.09); }
-.ig{ box-shadow: 0 18px 44px rgba(0,0,0,.5), 0 0 0 1px rgba(244,239,230,.09); overflow: hidden; }
-
-/* ---- 5. RHYTHM + READABILITY. Section starts get air, captions get a measure. ---- */
-.block{ padding: 124px 0; }
-.piece-label{ letter-spacing: .16em; }
-.piece-caption{ max-width: 60ch; line-height: 1.62; }
-
-/* ---- 6. CONTACT. Warmer surface so the last thing on the page is not the
-        coldest thing on the page. ---- */
-.contact{ background: var(--warm-dark); }
-.contact-panel{ background: var(--warm-raise); }
+/* ---------- contact: cream section, dark panel. the page closes on contrast. */
+.contact{ background: var(--cream); padding-bottom: 110px; }
+.contact-panel{ background: var(--stage); border: 1px solid rgba(224,163,46,.45); border-radius: 14px; }
+.contact .eyebrow{ color: var(--amber); }
+.contact-headline{ color: var(--bone); }
+.contact-note{ color: var(--bone-faint); }
 
 /* ==========================================================================
-   MOBILE FIRST , this is where the live page hurts most.
+   MOBILE, the primary review surface
    ========================================================================== */
 @media (max-width: 640px){
-  /* the live page opens cramped: nav, then headline immediately */
-  .hero{ padding: 56px 0 52px; }
+  .hero{ padding: 44px 0 40px; }
   .hero-headline{ max-width: none; }
   .hero-sub{ max-width: none; }
+  .hero-media{ margin-top: 28px; }
+  .hero-media img{ width: 100vw; margin-left: -20px; border-radius: 0; }
 
-  /* sections were running together because band and ground are nearly the
-     same value. Cream plus real padding makes the transitions obvious. */
-  .block{ padding: 76px 0; }
-  .piece{ margin-top: 76px; }
-  .piece:first-of-type{ margin-top: 44px; }
-
-  /* images had no room around them and butted into the next caption */
-  .piece-media{ margin-bottom: 24px; }
-  .screens{ gap: 18px; }
-
-  /* single column of cards, with the hairline grid kept as a warm rule */
-  .offers{ grid-template-columns: 1fr; }
-  .offer{ padding: 32px 24px; }
-
-  .fit{ gap: 44px; }
+  .block{ padding: 64px 0; }
+  .piece{ padding: 56px 0; }
+  .piece-media{ margin-bottom: 22px; }
+  .screens{ gap: 16px; }
   .piece-caption{ max-width: none; }
+
+  .offers{ grid-template-columns: 1fr; }
+  .offer{ padding: 30px 24px; }
+  .fit{ gap: 40px; }
+  .contact{ padding-bottom: 72px; }
+  .contact-panel{ padding: 40px 26px; }
 }
