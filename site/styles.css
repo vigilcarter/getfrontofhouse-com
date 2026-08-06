@@ -425,8 +425,11 @@ body{ background: var(--cream); color: var(--ink); }
    the photo meets the blurred backdrop. */
 @media (min-width: 641px){
   .hero-fig{
-    left: auto; right: 0; top: 0; bottom: 0;
-    width: auto; aspect-ratio: 1315 / 1150;
+    /* height drives width via aspect-ratio. Do NOT leave width:auto with
+       left:auto and no height: the box shrink-to-fits the image's intrinsic
+       width, overflows the hero and clips the sign off the bottom. */
+    left: auto; right: 0; top: 0; bottom: auto;
+    height: 100%; width: auto; aspect-ratio: 1315 / 1150;
     -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,.45) 12%, #000 30%);
             mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,.45) 12%, #000 30%);
   }
