@@ -418,9 +418,21 @@ body{ background: var(--cream); color: var(--ink); }
   filter: blur(34px) saturate(.72) brightness(.62);
 }
 
-/* the subject: whole frame, contained, softened so it recedes */
+/* The subject: whole frame, softened so it recedes.
+   Sized to the image's own aspect and pinned right, rather than letterboxed by
+   object-fit:contain, so its left edge is at a known place and can be dissolved
+   into the wash with a mask. Without this there is a faint vertical seam where
+   the photo meets the blurred backdrop. */
+@media (min-width: 641px){
+  .hero-fig{
+    left: auto; right: 0; top: 0; bottom: 0;
+    width: auto; aspect-ratio: 1315 / 1150;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,.45) 12%, #000 30%);
+            mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,.45) 12%, #000 30%);
+  }
+}
 .hero-fig img{
-  object-fit: contain; object-position: right center;
+  object-fit: cover; object-position: center;
   filter: blur(1.6px) saturate(.86) contrast(.92) brightness(.94);
 }
 
