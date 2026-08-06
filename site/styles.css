@@ -310,24 +310,6 @@ body{ background: var(--cream); color: var(--ink); }
 .hero-cta{ color: #241505; background: var(--amber); }
 .hero-cta:hover{ background: #F0B341; }
 
-/* Single column until an image exists, so there is no empty reserved void.
-   Adding .hero-media switches this to two columns with no other edit. */
-.hero-grid{ max-width: var(--wrap); margin: 0 auto; }
-.hero-grid .hero-inner{ max-width: none; }
-@media (min-width: 961px){
-  .hero-grid:has(.hero-media){
-    max-width: none; display: grid; align-items: center; gap: 56px;
-    grid-template-columns: minmax(0,1fr) minmax(0,46vw);
-    padding-left: max(24px, calc((100vw - var(--wrap)) / 2 + 24px));
-  }
-  .hero-grid:has(.hero-media) .hero-inner{ padding: 0; max-width: 34rem; }
-  .hero-grid:has(.hero-media) .hero-media{ justify-self: stretch; }
-  .hero-media img{ width: 100%; height: clamp(420px,54vh,620px); object-fit: cover;
-                   border-radius: 14px 0 0 14px; }
-}
-.hero-media{ margin-top: 34px; }
-.hero-media img{ width: 100%; border-radius: 12px; }
-
 /* ---------- section rhythm ---------- */
 .block{ padding: 104px 0; }
 .section-headline{ color: var(--ink); }
@@ -408,47 +390,89 @@ body{ background: var(--cream); color: var(--ink); }
   .contact-panel{ padding: 40px 26px; }
 }
 
-/* ---- hero photography (2026-08-06) -------------------------------------
-   Supporting image, not a proof piece. It has to sit BEHIND the idea, so a
-   cream scrim fades it into the canvas from the side the copy sits on, while
-   the side carrying the hostess and the ALWAYS OPEN sign stays clear. No
-   heavy blur: the source already has real optical bokeh in the room behind
-   her, and blurring further would cost the sign. */
-.hero-media{ position: relative; }
-.hero-media img{ filter: saturate(.97); }
+/* ---- HERO AS ONE SCENE (2026-08-06, replaces the split layout) -----------
+   The photograph fills the section; the copy sits on it over a directional
+   scrim that is darkest behind the words and clears toward the hostess and the
+   ALWAYS OPEN sign. Not a card, not a column, not a photo after the pitch.
 
-/* desktop: fade the LEFT edge into the cream canvas so there is no hard seam
-   next to the headline, and keep the right (hostess + sign) untouched */
-@media (min-width: 961px){
-  .hero-grid:has(.hero-media) .hero-media::after{
-    content: ""; position: absolute; inset: 0; pointer-events: none;
-    border-radius: 14px 0 0 14px;
-    background: linear-gradient(to right,
-      rgba(250,245,236,.95) 0%,
-      rgba(250,245,236,.55) 14%,
-      rgba(250,245,236,.18) 34%,
-      rgba(250,245,236,.04) 56%,
-      rgba(250,245,236,0)   72%);
-  }
-  /* bias the crop down a touch: trims ceiling rather than the sign */
-  .hero-media img{ height: clamp(460px,58vh,620px); object-position: 50% 58%; }
+   Geometry that drives the heights below: her face and the sign span about 82%
+   of the source height, so a short banner-shaped hero cannot hold both. The
+   hero is therefore tall on desktop and portrait-cropped on mobile. */
+
+.hero{
+  position: relative; isolation: isolate;
+  display: flex; align-items: center;
+  min-height: clamp(560px, 82vh, 840px);
+  padding: 0; overflow: hidden;
+  background: #14100D;
+}
+.hero-media{ position: absolute; inset: 0; z-index: 0; }
+.hero-media picture, .hero-media img{ display: block; width: 100%; height: 100%; }
+.hero-media img{ object-fit: cover; object-position: 50% 22%; filter: saturate(.98); }
+
+.hero-scrim{
+  position: absolute; inset: 0; pointer-events: none;
+  background:
+    linear-gradient(100deg,
+      rgba(16,12,9,.94) 0%,
+      rgba(16,12,9,.88) 24%,
+      rgba(16,12,9,.62) 44%,
+      rgba(16,12,9,.26) 62%,
+      rgba(16,12,9,.06) 80%,
+      rgba(16,12,9,0)  100%),
+    linear-gradient(to top, rgba(16,12,9,.42) 0%, rgba(16,12,9,0) 34%);
 }
 
-/* below the desktop breakpoint the image sits under the CTA, so the scrim comes
-   from the TOP and melts it up into the page instead of starting on a hard edge.
-   Runs to 960px so the tablet range is not left with an untreated raw photo. */
+.hero-inner{
+  position: relative; z-index: 1;
+  max-width: var(--wrap); margin: 0 auto; padding: 0 24px; width: 100%;
+}
+.hero-headline{ color: #FCF7EE; max-width: 15ch; text-shadow: 0 2px 30px rgba(16,12,9,.55); }
+.hero-sub{ color: #E6DCCD; max-width: 40ch; text-shadow: 0 1px 18px rgba(16,12,9,.7); }
+.hero-cta{ color: #241505; background: var(--amber); }
+.hero-cta:hover{ background: #F0B341; }
+
+/* the work grid used to butt straight onto the hero; give it its own air now
+   that the hero is a full scene rather than a padded type block */
+#work{ padding-top: 96px; }
+
+/* ---- tablet ---- */
 @media (max-width: 960px){
-  .hero-media::after{
-    content: ""; position: absolute; inset: 0; pointer-events: none;
-    background: linear-gradient(to bottom,
-      rgba(250,245,236,.92) 0%,
-      rgba(250,245,236,.40) 9%,
-      rgba(250,245,236,.10) 20%,
-      rgba(250,245,236,0)   34%);
+  .hero{ min-height: clamp(520px, 74vh, 720px); }
+  .hero-media img{ object-position: 54% 24%; }
+  .hero-scrim{
+    background:
+      linear-gradient(105deg,
+        rgba(16,12,9,.94) 0%,
+        rgba(16,12,9,.84) 30%,
+        rgba(16,12,9,.52) 52%,
+        rgba(16,12,9,.18) 74%,
+        rgba(16,12,9,0)  96%),
+      linear-gradient(to top, rgba(16,12,9,.46) 0%, rgba(16,12,9,0) 38%);
   }
+  #work{ padding-top: 72px; }
 }
 
-/* Tablet gets NO height cap, deliberately. The desktop crop puts her head at the
-   very top edge and the sign at the very bottom, so there is no slack: any
-   vertical crop takes one or the other. It runs tall at this width and that is
-   the correct trade. */
+/* ---- phones: Android 360-390 is the primary target ----
+   The mobile crop is portrait, so the hero crops horizontally here and both
+   subjects survive. The scrim runs top-down so the headline and CTA read
+   against the darkest part while the sign stays clear lower right. */
+@media (max-width: 640px){
+  .hero{ min-height: clamp(500px, 76vh, 660px); align-items: flex-start; }
+  .hero-inner{ padding: 52px 20px 0; }
+  .hero-media img{ object-position: 62% 30%; }
+  .hero-scrim{
+    background:
+      linear-gradient(to bottom,
+        rgba(16,12,9,.93) 0%,
+        rgba(16,12,9,.86) 26%,
+        rgba(16,12,9,.60) 44%,
+        rgba(16,12,9,.24) 62%,
+        rgba(16,12,9,.10) 80%,
+        rgba(16,12,9,.18) 100%),
+      linear-gradient(to right, rgba(16,12,9,.34) 0%, rgba(16,12,9,0) 62%);
+  }
+  .hero-headline{ max-width: none; }
+  .hero-sub{ max-width: none; }
+  #work{ padding-top: 56px; }
+}

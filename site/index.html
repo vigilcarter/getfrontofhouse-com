@@ -54,38 +54,31 @@
      Type only. No image, no scrim, no full-bleed, no 100vh. The proof is the
      work grid directly below, so the hero states the offer and gets out of
      the way. Local positioning moved out of here and sits lower on the page. -->
+<!-- HERO
+     One scene. The photograph fills the section and the copy is layered over a
+     directional scrim: darkest behind the words, clearing toward the hostess and
+     the ALWAYS OPEN sign. Two crops from one approved source
+     (FOH Assets / Main Website / hostess.png). Her face and the sign span about
+     82% of the source height, so the desktop crop trims only dead ceiling and
+     floor, and the mobile crop is portrait so a phone-shaped hero crops
+     horizontally rather than cutting her head off. -->
 <section class="hero">
-  <!-- HERO SLOT, RESERVED AND MEASURED.
-       The copy column is capped at 640px on desktop, so a hero image drops into
-       the right-hand column without any of this copy moving. At a 1440 viewport
-       that reserved area is x=824 to x=1256, about 432x560. The recommended
-       variant is to let it bleed right to the viewport edge instead, about
-       616px wide. On mobile the image belongs BELOW the CTA, full-bleed, about
-       390x420, so the offer and the button are read before the picture.
-       Nothing is rendered here yet, deliberately. -->
-  <div class="hero-grid">
-    <div class="hero-inner">
-      <h1 class="hero-headline">Sharp visual work<br />for restaurants<span class="dot">.</span></h1>
-      <p class="hero-sub">Menus, websites, social posts. Done this week.</p>
-      <a href="#contact" class="hero-cta">Send a sample</a>
-    </div>
+  <div class="hero-media" aria-hidden="true">
+    <picture>
+      <source media="(max-width: 700px)"
+              srcset="/images/hero-bg-m-600.webp 600w, /images/hero-bg-m-900.webp 900w"
+              sizes="100vw" type="image/webp" />
+      <source srcset="/images/hero-bg-900.webp 900w, /images/hero-bg-1200.webp 1200w, /images/hero-bg-1600.webp 1600w"
+              sizes="100vw" type="image/webp" />
+      <img src="/images/hero-bg-1600.webp" alt="" width="1600" height="1351" fetchpriority="high" decoding="async" />
+    </picture>
+    <span class="hero-scrim"></span>
+  </div>
 
-    <!-- Supporting hero photography, not a portfolio proof piece. Two crops from
-         one source (FOH Assets / Main Website / hostess.png): the desktop crop
-         keeps some of the room, the mobile crop tightens onto the hostess and
-         the ALWAYS OPEN sign because the phone is the primary surface. -->
-    <div class="hero-media">
-      <picture>
-        <source media="(max-width: 700px)"
-                srcset="/images/hero-mobile-520.webp 520w, /images/hero-mobile-780.webp 780w"
-                sizes="100vw" type="image/webp" />
-        <source srcset="/images/hero-desktop-880.webp 880w, /images/hero-desktop-1232.webp 1232w"
-                sizes="(max-width: 960px) 100vw, 46vw" type="image/webp" />
-        <img src="/images/hero-desktop-1232.webp"
-             alt="A host smiling behind a wooden welcome stand, with an Always Open sign hanging on the front and a full dining room behind her"
-             width="1232" height="986" fetchpriority="high" decoding="async" />
-      </picture>
-    </div>
+  <div class="hero-inner">
+    <h1 class="hero-headline">Sharp visual work<br />for restaurants<span class="dot">.</span></h1>
+    <p class="hero-sub">Menus, websites, social posts. Done this week.</p>
+    <a href="#contact" class="hero-cta">Send a sample</a>
   </div>
 </section>
 
