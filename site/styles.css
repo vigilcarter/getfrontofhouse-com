@@ -448,7 +448,7 @@ body{ background: var(--cream); color: var(--ink); }
   }
 }
 
-/* tablet: the desktop crop at full width runs very tall, so cap it into a band */
-@media (min-width: 641px) and (max-width: 960px){
-  .hero-media img{ height: clamp(380px,50vh,520px); object-fit: cover; object-position: 50% 56%; }
-}
+/* Tablet gets NO height cap, deliberately. The desktop crop puts her head at the
+   very top edge and the sign at the very bottom, so there is no slack: any
+   vertical crop takes one or the other. It runs tall at this width and that is
+   the correct trade. */
