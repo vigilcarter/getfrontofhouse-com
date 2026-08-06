@@ -266,3 +266,96 @@ img { display: block; max-width: 100%; height: auto; }
   .contact-headline { max-width: none; }
   .contact-panel { padding: 36px 22px; }
 }
+/* ==========================================================================
+   WARMTH, BREATHING ROOM AND RHYTHM (shipped 2026-08-06).
+   Appended rather than woven in, so this pass stays reviewable as one block.
+   Mobile is the priority. The dark identity stays; the
+   point is that the page stops being ONE dark value from top to bottom.
+   ========================================================================== */
+
+:root{
+  --cream:      #F7F1E6;   /* the tonal break. one section only. */
+  --cream-2:    #EFE7D8;   /* cream panel inset */
+  --ink:        #17120F;   /* type on cream */
+  --ink-dim:    #5A5049;   /* secondary type on cream */
+  --warm-dark:  #201813;   /* third tone. lifted from #17120F, which was too close to
+                              --ground to actually read as a separate surface. */
+  --warm-raise: #2A211A;   /* panel on warm-dark */
+  --amber-ink:  #8A5A08;   /* amber dark enough to sit on cream (AA) */
+}
+
+/* ---- 1. HERO. More air above and below, and a measured copy column so a
+        future hero image can take the right side without moving anything. ---- */
+.hero{ padding: clamp(72px, 15vh, 172px) 0 clamp(64px, 13vh, 150px); }
+.hero-inner{ max-width: var(--wrap); }
+.hero-headline{ max-width: 15ch; }
+.hero-sub{ max-width: 46ch; }
+@media (min-width: 961px){
+  .hero-inner{ max-width: 640px; margin-left: max(24px, calc((100vw - var(--wrap)) / 2 + 24px)); margin-right: 0; }
+}
+
+/* ---- 2. SERVICES BAND -> CREAM. The single biggest warmth move: it splits the
+        page tonally in half instead of running one dark value the whole way. ---- */
+.band{ background: var(--cream); color: var(--ink); }
+.band .eyebrow{ color: var(--amber-ink); }
+.band .section-headline{ color: var(--ink); }
+.band .section-headline .dot{ color: var(--amber-ink); }
+.offers{ background: rgba(23,18,15,.14); margin-top: 52px; }
+.offer{ background: var(--cream); padding: 42px 38px; }
+.offer h3{ color: var(--ink); }
+.offer p{ color: var(--ink-dim); }
+
+/* ---- 3. FIT -> WARM DARK. A third tone, so the page reads dark / cream / warm
+        dark rather than black / black / black. ---- */
+.block:has(.fit){ background: var(--warm-dark); }
+.fit{ margin-top: 52px; gap: 64px; }
+
+/* ---- 4. IMAGERY BREATHES. Live, the work images bleed straight into pure
+        black with hard edges. A soft warm mat and a radius let them sit on the
+        page instead of falling off it. ---- */
+.piece-media img,
+.screens img,
+.ig{ border-radius: 10px; }
+.piece-media{ margin-bottom: 30px; }
+.piece{ margin-top: 104px; }
+.piece:first-of-type{ margin-top: 64px; }
+.piece-media > img,
+.screens > img{ box-shadow: 0 18px 44px rgba(0,0,0,.5), 0 0 0 1px rgba(244,239,230,.09); }
+.ig{ box-shadow: 0 18px 44px rgba(0,0,0,.5), 0 0 0 1px rgba(244,239,230,.09); overflow: hidden; }
+
+/* ---- 5. RHYTHM + READABILITY. Section starts get air, captions get a measure. ---- */
+.block{ padding: 124px 0; }
+.piece-label{ letter-spacing: .16em; }
+.piece-caption{ max-width: 60ch; line-height: 1.62; }
+
+/* ---- 6. CONTACT. Warmer surface so the last thing on the page is not the
+        coldest thing on the page. ---- */
+.contact{ background: var(--warm-dark); }
+.contact-panel{ background: var(--warm-raise); }
+
+/* ==========================================================================
+   MOBILE FIRST , this is where the live page hurts most.
+   ========================================================================== */
+@media (max-width: 640px){
+  /* the live page opens cramped: nav, then headline immediately */
+  .hero{ padding: 56px 0 52px; }
+  .hero-headline{ max-width: none; }
+  .hero-sub{ max-width: none; }
+
+  /* sections were running together because band and ground are nearly the
+     same value. Cream plus real padding makes the transitions obvious. */
+  .block{ padding: 76px 0; }
+  .piece{ margin-top: 76px; }
+  .piece:first-of-type{ margin-top: 44px; }
+
+  /* images had no room around them and butted into the next caption */
+  .piece-media{ margin-bottom: 24px; }
+  .screens{ gap: 18px; }
+
+  /* single column of cards, with the hairline grid kept as a warm rule */
+  .offers{ grid-template-columns: 1fr; }
+  .offer{ padding: 32px 24px; }
+
+  .fit{ gap: 44px; }
+  .piece-caption{ max-width: none; }
+}
