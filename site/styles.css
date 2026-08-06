@@ -434,9 +434,10 @@ body{ background: var(--cream); color: var(--ink); }
   .hero-media img{ height: clamp(460px,58vh,620px); object-position: 50% 58%; }
 }
 
-/* mobile: the image sits under the CTA, so the scrim comes from the TOP and
-   melts it up into the page instead of starting with a hard edge */
-@media (max-width: 640px){
+/* below the desktop breakpoint the image sits under the CTA, so the scrim comes
+   from the TOP and melts it up into the page instead of starting on a hard edge.
+   Runs to 960px so the tablet range is not left with an untreated raw photo. */
+@media (max-width: 960px){
   .hero-media::after{
     content: ""; position: absolute; inset: 0; pointer-events: none;
     background: linear-gradient(to bottom,
@@ -445,4 +446,9 @@ body{ background: var(--cream); color: var(--ink); }
       rgba(250,245,236,.10) 20%,
       rgba(250,245,236,0)   34%);
   }
+}
+
+/* tablet: the desktop crop at full width runs very tall, so cap it into a band */
+@media (min-width: 641px) and (max-width: 960px){
+  .hero-media img{ height: clamp(380px,50vh,520px); object-fit: cover; object-position: 50% 56%; }
 }
