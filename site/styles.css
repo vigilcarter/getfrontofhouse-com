@@ -436,7 +436,7 @@ body{ background: var(--cream); color: var(--ink); }
 }
 .hero-fig img{
   object-fit: cover; object-position: center;
-  filter: blur(1.6px) saturate(.86) contrast(.92) brightness(.94);
+  /* sharp, deliberately. Readability is the scrim's job, not the image's. */
 }
 
 .hero-scrim{
@@ -491,7 +491,7 @@ body{ background: var(--cream); color: var(--ink); }
   .hero-sub{ margin-top: 12px; font-size: 15.5px; max-width: none; }
   .hero-cta{ margin-top: 20px; padding: 13px 22px; font-size: 13.5px; }
 
-  .hero-fig img{ object-fit: cover; object-position: 72% 52%; filter: blur(1.2px) saturate(.88) contrast(.94); }
+  .hero-fig img{ object-fit: cover; object-position: 72% 52%; }   /* sharp */
   .hero-wash img{ transform: scale(1.22); filter: blur(30px) saturate(.7) brightness(.6); }
   .hero-scrim{
     background:
