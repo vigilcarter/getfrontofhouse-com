@@ -407,3 +407,42 @@ body{ background: var(--cream); color: var(--ink); }
   .contact{ padding-bottom: 72px; }
   .contact-panel{ padding: 40px 26px; }
 }
+
+/* ---- hero photography (2026-08-06) -------------------------------------
+   Supporting image, not a proof piece. It has to sit BEHIND the idea, so a
+   cream scrim fades it into the canvas from the side the copy sits on, while
+   the side carrying the hostess and the ALWAYS OPEN sign stays clear. No
+   heavy blur: the source already has real optical bokeh in the room behind
+   her, and blurring further would cost the sign. */
+.hero-media{ position: relative; }
+.hero-media img{ filter: saturate(.97); }
+
+/* desktop: fade the LEFT edge into the cream canvas so there is no hard seam
+   next to the headline, and keep the right (hostess + sign) untouched */
+@media (min-width: 961px){
+  .hero-grid:has(.hero-media) .hero-media::after{
+    content: ""; position: absolute; inset: 0; pointer-events: none;
+    border-radius: 14px 0 0 14px;
+    background: linear-gradient(to right,
+      rgba(250,245,236,.95) 0%,
+      rgba(250,245,236,.55) 14%,
+      rgba(250,245,236,.18) 34%,
+      rgba(250,245,236,.04) 56%,
+      rgba(250,245,236,0)   72%);
+  }
+  /* bias the crop down a touch: trims ceiling rather than the sign */
+  .hero-media img{ height: clamp(460px,58vh,620px); object-position: 50% 58%; }
+}
+
+/* mobile: the image sits under the CTA, so the scrim comes from the TOP and
+   melts it up into the page instead of starting with a hard edge */
+@media (max-width: 640px){
+  .hero-media::after{
+    content: ""; position: absolute; inset: 0; pointer-events: none;
+    background: linear-gradient(to bottom,
+      rgba(250,245,236,.92) 0%,
+      rgba(250,245,236,.40) 9%,
+      rgba(250,245,236,.10) 20%,
+      rgba(250,245,236,0)   34%);
+  }
+}

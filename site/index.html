@@ -70,18 +70,22 @@
       <a href="#contact" class="hero-cta">Send a sample</a>
     </div>
 
-    <!-- HERO IMAGE SLOT. Technically ready, deliberately empty.
-         Paste the block below when the approved asset lands. Nothing else needs
-         to change: .hero-grid:has(.hero-media) switches to two columns on
-         desktop and stacks the image under the CTA on mobile, automatically.
-
+    <!-- Supporting hero photography, not a portfolio proof piece. Two crops from
+         one source (FOH Assets / Main Website / hostess.png): the desktop crop
+         keeps some of the room, the mobile crop tightens onto the hostess and
+         the ALWAYS OPEN sign because the phone is the primary surface. -->
     <div class="hero-media">
       <picture>
-        <source media="(max-width: 700px)" srcset="/images/hero-mobile.webp" />
-        <img src="/images/hero-desktop.webp" alt="" width="1232" height="1120" fetchpriority="high" />
+        <source media="(max-width: 700px)"
+                srcset="/images/hero-mobile-520.webp 520w, /images/hero-mobile-780.webp 780w"
+                sizes="100vw" type="image/webp" />
+        <source srcset="/images/hero-desktop-880.webp 880w, /images/hero-desktop-1232.webp 1232w"
+                sizes="(max-width: 960px) 100vw, 46vw" type="image/webp" />
+        <img src="/images/hero-desktop-1232.webp"
+             alt="A host smiling behind a wooden welcome stand, with an Always Open sign hanging on the front and a full dining room behind her"
+             width="1232" height="986" fetchpriority="high" decoding="async" />
       </picture>
     </div>
-    -->
   </div>
 </section>
 
