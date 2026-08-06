@@ -10,3 +10,7 @@ Disallow: /waves
 Disallow: /waves/
 Disallow: /oakdiner
 Disallow: /oakdiner/
+
+# Internal previews. Duplicates of live pages, never for indexing.
+Disallow: /preview
+Disallow: /preview/
