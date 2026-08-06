@@ -424,7 +424,7 @@ body{ background: var(--cream); color: var(--ink); }
    into the wash with a mask. Without this there is a faint vertical seam where
    the photo meets the blurred backdrop. */
 @media (min-width: 641px){
-  .hero-fig{
+  .hero-media picture.hero-fig{
     /* height drives width via aspect-ratio. Do NOT leave width:auto with
        left:auto and no height: the box shrink-to-fits the image's intrinsic
        width, overflows the hero and clips the sign off the bottom. */
