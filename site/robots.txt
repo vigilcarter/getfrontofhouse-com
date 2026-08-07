@@ -10,3 +10,5 @@ Disallow: /waves
 Disallow: /waves/
 Disallow: /oakdiner
 Disallow: /oakdiner/
+Disallow: /nickswarren
+Disallow: /nickswarren/
