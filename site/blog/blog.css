@@ -84,7 +84,7 @@
   border-top: 1px solid var(--rule);
   border-bottom: 1px solid var(--rule);
   padding: 44px 0 48px;
-  margin-bottom: 56px;
+  margin-bottom: 40px;
 }
 .featured:hover .featured-title { color: var(--amber-ink); }
 .featured-kicker {
@@ -111,19 +111,6 @@
   font-size: 14.5px; letter-spacing: 0.09em; text-transform: uppercase;
   font-variation-settings: 'wdth' 100, 'wght' 700;
   color: var(--ink); border-bottom: 2px solid var(--amber-ink); padding-bottom: 4px;
-}
-
-/* what's coming — honest about a library of one, without looking broken */
-.next-up { padding-bottom: 76px; }
-.next-up h2 {
-  font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase;
-  font-variation-settings: 'wdth' 100, 'wght' 700;
-  color: var(--ink-2); margin-bottom: 18px;
-}
-.next-up ul { list-style: none; max-width: 60ch; }
-.next-up li {
-  padding: 13px 0; border-bottom: 1px solid var(--rule-soft);
-  color: var(--ink-2); font-size: 17px;
 }
 
 /* ---------- article header ---------- */
