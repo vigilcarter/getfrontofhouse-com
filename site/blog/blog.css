@@ -1,0 +1,385 @@
+/* ==========================================================================
+   Restaurant Resources — the Front of House content section.
+
+   This EXTENDS site/styles.css rather than restating it. Tokens, the dark
+   nav, the dark footer, the wordmark and the social glyphs all come from
+   there, so the library reads as the same company as the homepage.
+
+   Two deliberate departures from the homepage, both for reading rather than
+   for looking different:
+
+   1. Article body sets its own measure (~700px) and a taller line-height.
+      The homepage is a portfolio and reads in glances; an article is read in
+      minutes.
+   2. Display type relaxes from the homepage's 'wdth' 76 / 'wght' 800 to
+      82/700. The compressed cut is a poster voice. At article length it
+      shouts. Same typeface, same family, lower volume.
+
+   NOTE ON TYPOGRAPHY: the brief specified Source Serif 4 + Inter. The live
+   site uses neither -- it is Archivo only, and 'no serif' is a stated house
+   rule. Built on the live system; see the handoff note. Switching to a serif
+   is a brand decision, not a CSS one.
+   ========================================================================== */
+
+:root {
+  --measure: 700px;      /* body copy column */
+  --measure-wide: 880px; /* headline + full-bleed-ish elements */
+}
+
+/* ---------- shell ---------- */
+.doc {
+  background: var(--cream);
+  color: var(--ink);
+  /* Short pages (an index holding one article) must still push the footer to
+     the bottom, or the dark bookend floats in the middle of the viewport. */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.doc > main { flex: 1 0 auto; }
+.doc > .site-footer { flex-shrink: 0; }
+
+.doc-wrap {
+  max-width: var(--measure-wide);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.measure { max-width: var(--measure); }
+
+/* ---------- breadcrumbs ---------- */
+.crumbs {
+  font-size: 14px;
+  letter-spacing: 0.02em;
+  color: var(--ink-2);
+  padding: 34px 0 0;
+}
+.crumbs a { color: var(--ink-2); text-decoration: none; border-bottom: 1px solid var(--rule); }
+.crumbs a:hover { color: var(--amber-ink); border-bottom-color: var(--amber-ink); }
+.crumbs .sep { padding: 0 8px; opacity: 0.5; }
+.crumbs [aria-current] { color: var(--ink); }
+
+/* ---------- section masthead (index) ---------- */
+.lib-head { padding: 52px 0 40px; }
+.lib-eyebrow {
+  font-size: 12.5px; letter-spacing: 0.18em; text-transform: uppercase;
+  font-variation-settings: 'wdth' 100, 'wght' 700;
+  color: var(--amber-ink); margin-bottom: 18px;
+}
+.lib-title {
+  font-variation-settings: 'wdth' 82, 'wght' 700;
+  letter-spacing: -0.015em; line-height: 1.03;
+  font-size: clamp(40px, 7vw, 66px);
+}
+.lib-sub {
+  margin-top: 16px; max-width: 46ch;
+  font-size: clamp(18px, 2.2vw, 21px); line-height: 1.5; color: var(--ink-2);
+}
+
+/* ---------- featured article card ----------
+   One article deliberately gets the whole width. A three-up grid with a
+   single tenant reads as a site that failed, not a library that is starting. */
+.featured {
+  display: block; text-decoration: none; color: inherit;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding: 44px 0 48px;
+  margin-bottom: 56px;
+}
+.featured:hover .featured-title { color: var(--amber-ink); }
+.featured-kicker {
+  font-size: 12.5px; letter-spacing: 0.16em; text-transform: uppercase;
+  font-variation-settings: 'wdth' 100, 'wght' 700; color: var(--amber-ink);
+}
+.featured-title {
+  margin-top: 16px; max-width: 20ch;
+  font-variation-settings: 'wdth' 84, 'wght' 700;
+  letter-spacing: -0.015em; line-height: 1.06;
+  font-size: clamp(30px, 5vw, 46px);
+  transition: color 0.15s ease;
+}
+.featured-dek {
+  margin-top: 18px; max-width: 60ch;
+  font-size: 18.5px; line-height: 1.58; color: var(--ink-2);
+}
+.featured-meta {
+  margin-top: 22px; display: flex; flex-wrap: wrap; gap: 10px 18px;
+  font-size: 14px; color: var(--ink-2);
+}
+.featured-more {
+  margin-top: 26px; display: inline-block;
+  font-size: 14.5px; letter-spacing: 0.09em; text-transform: uppercase;
+  font-variation-settings: 'wdth' 100, 'wght' 700;
+  color: var(--ink); border-bottom: 2px solid var(--amber-ink); padding-bottom: 4px;
+}
+
+/* what's coming — honest about a library of one, without looking broken */
+.next-up { padding-bottom: 76px; }
+.next-up h2 {
+  font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase;
+  font-variation-settings: 'wdth' 100, 'wght' 700;
+  color: var(--ink-2); margin-bottom: 18px;
+}
+.next-up ul { list-style: none; max-width: 60ch; }
+.next-up li {
+  padding: 13px 0; border-bottom: 1px solid var(--rule-soft);
+  color: var(--ink-2); font-size: 17px;
+}
+
+/* ---------- article header ---------- */
+.art-head { padding: 30px 0 8px; }
+.art-title {
+  font-variation-settings: 'wdth' 82, 'wght' 700;
+  letter-spacing: -0.017em; line-height: 1.05;
+  font-size: clamp(33px, 5.4vw, 55px);
+  max-width: 17ch;
+}
+.art-standfirst {
+  margin-top: 22px; max-width: 58ch;
+  font-size: clamp(19px, 2.3vw, 22px); line-height: 1.5; color: var(--ink-2);
+}
+.art-meta {
+  margin-top: 26px; padding: 16px 0;
+  border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule);
+  display: flex; flex-wrap: wrap; gap: 8px 20px;
+  font-size: 14px; color: var(--ink-2);
+}
+.art-meta strong { font-variation-settings: 'wdth' 100, 'wght' 600; color: var(--ink); }
+
+/* ---------- table of contents ---------- */
+.toc {
+  max-width: var(--measure);
+  margin: 40px 0 8px; padding: 26px 28px;
+  background: var(--neutral); border-left: 3px solid var(--amber-ink);
+}
+.toc h2 {
+  font-size: 12.5px; letter-spacing: 0.16em; text-transform: uppercase;
+  font-variation-settings: 'wdth' 100, 'wght' 700; color: var(--ink-2);
+  margin-bottom: 14px;
+}
+.toc ol { list-style: none; counter-reset: toc; }
+.toc li { counter-increment: toc; margin: 0; }
+.toc a {
+  display: block; padding: 7px 0 7px 30px; position: relative;
+  color: var(--ink); text-decoration: none; font-size: 16.5px; line-height: 1.4;
+}
+.toc a::before {
+  content: counter(toc); position: absolute; left: 0; top: 7px;
+  font-size: 12.5px; color: var(--amber-ink);
+  font-variation-settings: 'wdth' 100, 'wght' 700;
+}
+.toc a:hover { color: var(--amber-ink); }
+
+/* ---------- article body ---------- */
+.art-body { padding: 8px 0 20px; }
+.art-body > * { max-width: var(--measure); }
+
+.art-body h2 {
+  margin: 54px 0 4px;
+  font-variation-settings: 'wdth' 88, 'wght' 700;
+  letter-spacing: -0.01em; line-height: 1.15;
+  font-size: clamp(25px, 3.4vw, 33px);
+  scroll-margin-top: 88px;     /* sticky nav must not eat the heading on jump */
+}
+.art-body h2:first-child { margin-top: 20px; }
+
+.art-body h3 {
+  margin: 34px 0 2px;
+  font-variation-settings: 'wdth' 100, 'wght' 700;
+  font-size: 20px; line-height: 1.3;
+}
+
+.art-body p {
+  margin: 18px 0; font-size: 18.5px; line-height: 1.68;
+}
+
+.art-body a {
+  color: var(--ink); text-decoration: none;
+  border-bottom: 1px solid rgba(138, 90, 8, 0.45);
+}
+.art-body a:hover { color: var(--amber-ink); border-bottom-color: var(--amber-ink); }
+
+.art-body strong { font-variation-settings: 'wdth' 100, 'wght' 700; }
+
+.art-body ul, .art-body ol { margin: 20px 0; padding-left: 26px; }
+.art-body li { margin: 10px 0; font-size: 18.5px; line-height: 1.62; }
+.art-body ol { counter-reset: none; }
+
+/* The three-way decision block. A table would be overkill and reads badly on
+   a phone; this is a definition list that stacks cleanly. */
+.decision {
+  margin: 30px 0; padding: 4px 0;
+  border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule);
+}
+.decision div {
+  display: flex; gap: 18px; padding: 15px 0;
+  border-bottom: 1px solid var(--rule-soft); align-items: baseline;
+}
+.decision div:last-child { border-bottom: 0; }
+.decision dt {
+  flex: 0 0 auto; min-width: 15ch;
+  font-variation-settings: 'wdth' 100, 'wght' 700; font-size: 16.5px;
+}
+.decision dd { margin: 0; color: var(--ink-2); font-size: 17px; }
+.decision .arrow { color: var(--amber-ink); font-variation-settings: 'wght' 700; }
+
+/* pull line — used sparingly, for the sentence that carries the section */
+.pull {
+  margin: 34px 0; padding: 4px 0 4px 22px;
+  border-left: 3px solid var(--amber-ink);
+  font-variation-settings: 'wdth' 92, 'wght' 600;
+  font-size: clamp(20px, 2.6vw, 24px); line-height: 1.35; color: var(--ink);
+}
+
+/* the monthly checklist */
+.checklist { counter-reset: step; list-style: none; padding-left: 0; margin: 26px 0; }
+.checklist li {
+  counter-increment: step; position: relative;
+  padding: 14px 0 14px 46px; border-bottom: 1px solid var(--rule-soft);
+  font-size: 17.5px; line-height: 1.55;
+}
+.checklist li::before {
+  content: counter(step); position: absolute; left: 0; top: 14px;
+  width: 28px; height: 28px; border-radius: 50%;
+  background: var(--ink); color: var(--cream);
+  display: grid; place-items: center;
+  font-size: 13px; font-variation-settings: 'wdth' 100, 'wght' 700;
+}
+
+/* ---------- CTAs ---------- */
+/* Mid-article: quiet on purpose. It sits inside the reading column and does
+   not interrupt with colour or scale -- the reader is mid-thought. */
+.cta-inline {
+  margin: 46px 0; padding: 28px 30px;
+  background: var(--neutral); border: 1px solid var(--rule);
+}
+.cta-inline p { margin: 0; font-size: 17.5px; line-height: 1.55; }
+.cta-inline .cta-lead {
+  font-variation-settings: 'wdth' 100, 'wght' 700;
+  font-size: 19px; margin-bottom: 8px;
+}
+.cta-inline a.cta-go {
+  display: inline-block; margin-top: 16px;
+  font-size: 14px; letter-spacing: 0.1em; text-transform: uppercase;
+  font-variation-settings: 'wdth' 100, 'wght' 700;
+  color: var(--ink); border: 0; border-bottom: 2px solid var(--amber-ink);
+  padding-bottom: 4px; text-decoration: none;
+}
+.cta-inline a.cta-go:hover { color: var(--amber-ink); }
+
+/* Closing: the dark panel, the one place the article raises its voice. */
+.cta-end {
+  margin: 66px 0 0; background: var(--stage); color: var(--bone);
+  padding: clamp(38px, 6vw, 60px) clamp(26px, 5vw, 52px);
+}
+.cta-end h2 {
+  font-variation-settings: 'wdth' 84, 'wght' 700;
+  letter-spacing: -0.015em; line-height: 1.08;
+  font-size: clamp(27px, 4vw, 38px); max-width: 18ch; color: var(--bone);
+}
+.cta-end p {
+  margin-top: 18px; max-width: 54ch;
+  font-size: 18px; line-height: 1.6; color: var(--bone-dim);
+}
+.cta-end .cta-actions {
+  margin-top: 30px; display: flex; flex-wrap: wrap; gap: 14px 18px; align-items: center;
+}
+.cta-end .btn {
+  display: inline-block; padding: 15px 26px;
+  background: var(--amber); color: #17120B; text-decoration: none;
+  font-size: 14px; letter-spacing: 0.1em; text-transform: uppercase;
+  font-variation-settings: 'wdth' 100, 'wght' 700;
+}
+.cta-end .btn:hover { background: #EFB63F; }
+.cta-end .btn-quiet {
+  background: transparent; color: var(--bone);
+  border: 1px solid rgba(244, 239, 230, 0.34);
+}
+.cta-end .btn-quiet:hover { background: rgba(244, 239, 230, 0.08); }
+.cta-end .cta-note { margin-top: 18px; font-size: 15px; color: var(--bone-faint); }
+
+/* ---------- sources ---------- */
+.sources { margin: 60px 0 0; padding-top: 30px; border-top: 1px solid var(--rule); }
+.sources h2 {
+  font-size: 12.5px; letter-spacing: 0.16em; text-transform: uppercase;
+  font-variation-settings: 'wdth' 100, 'wght' 700; color: var(--ink-2);
+  margin-bottom: 6px;
+}
+.sources p.sources-note { font-size: 15px; color: var(--ink-2); margin: 8px 0 18px; max-width: 62ch; }
+.sources ul { list-style: none; padding: 0; }
+.sources li { padding: 9px 0; border-bottom: 1px solid var(--rule-soft); font-size: 16px; }
+.sources a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--rule); }
+.sources a:hover { color: var(--amber-ink); border-bottom-color: var(--amber-ink); }
+
+/* ---------- foot of article ---------- */
+.art-foot { padding: 44px 0 84px; }
+.back-link {
+  display: inline-block; font-size: 14.5px; letter-spacing: 0.08em;
+  text-transform: uppercase; font-variation-settings: 'wdth' 100, 'wght' 700;
+  color: var(--ink); text-decoration: none;
+  border-bottom: 2px solid var(--amber-ink); padding-bottom: 4px;
+}
+.back-link:hover { color: var(--amber-ink); }
+
+/* ---------- mobile ---------- */
+@media (max-width: 640px) {
+  .doc-wrap { padding: 0 20px; }
+  .art-body p, .art-body li { font-size: 17.5px; line-height: 1.66; }
+  .art-title { max-width: none; }
+  .toc { max-width: none; padding: 22px 20px; margin-left: -20px; margin-right: -20px; }
+  .decision div { flex-direction: column; gap: 4px; }
+  .decision dt { min-width: 0; }
+  .cta-inline { padding: 24px 22px; margin-left: -20px; margin-right: -20px; }
+  .checklist li { padding-left: 40px; }
+}
+
+/* Reduced motion: the shared stylesheet animates reveals; articles should not
+   depend on motion to become readable. */
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
+
+/* ==========================================================================
+   Shared chrome the content section needs and the homepage did not.
+   These live here rather than in styles.css so the blog stays one reviewable
+   unit; promote them to styles.css if the homepage ever uses them.
+   ========================================================================== */
+
+/* Skip link: the article is long and the nav is sticky, so keyboard users
+   need a way past the chrome. Visible only on focus. */
+.skip-link {
+  position: absolute; left: -9999px; top: 0; z-index: 100;
+  background: var(--amber); color: #17120B;
+  padding: 12px 18px; text-decoration: none;
+  font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase;
+  font-variation-settings: 'wdth' 100, 'wght' 700;
+}
+.skip-link:focus { left: 8px; top: 8px; }
+
+/* .nav-section-link lives in styles.css: the homepage nav uses it too. */
+
+/* Email in the dark footer. */
+.footer-email {
+  color: var(--bone-dim); text-decoration: none; font-size: 15px;
+  border-bottom: 1px solid rgba(244, 239, 230, 0.22);
+}
+.footer-email:hover { color: var(--amber); border-bottom-color: var(--amber); }
+
+/* Visible focus for keyboard users across the content section. */
+.doc a:focus-visible,
+.skip-link:focus-visible {
+  outline: 3px solid var(--amber-ink);
+  outline-offset: 3px;
+}
+.site-nav a:focus-visible,
+.site-footer a:focus-visible {
+  outline: 3px solid var(--amber);
+  outline-offset: 3px;
+}
+
+@media (max-width: 560px) {
+  /* The nav CTA is the first thing to go; Resources and the glyphs matter
+     more on a content page than "Send a sample". */
+  .site-nav .nav-cta { display: none; }
+  .footer-email { display: none; }
+}

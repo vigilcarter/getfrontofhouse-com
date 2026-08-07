@@ -506,3 +506,16 @@ body{ background: var(--cream); color: var(--ink); }
   }
   #work{ padding-top: 56px; }
 }
+
+/* ---------- section link in the nav (added with Restaurant Resources) ----------
+   Text link sitting left of the social glyphs in the dark bar. Shared, because
+   the homepage and every article render the same nav. */
+.nav-section-link {
+  color: var(--bone); text-decoration: none;
+  font-size: 14px; letter-spacing: 0.09em; text-transform: uppercase;
+  font-variation-settings: 'wdth' 100, 'wght' 600;
+  padding-bottom: 3px; border-bottom: 2px solid transparent;
+  white-space: nowrap;
+}
+.nav-section-link:hover { color: var(--amber); }
+.nav-section-link[aria-current] { border-bottom-color: var(--amber); }
